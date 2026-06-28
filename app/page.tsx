@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Download } from "lucide-react";
 import { motion } from "framer-motion";
 import ProjectCard from "@/components/project-card";
@@ -34,60 +35,86 @@ export default function Home() {
         variants={containerVariants}
         initial="hidden"
         animate="show"
-        className="flex flex-col items-start gap-6 max-w-2xl"
+        className="flex flex-col-reverse md:flex-row md:items-center justify-between gap-10 w-full"
       >
-        {/* Availability Badge */}
+        {/* Left Column (Text & Actions) */}
+        <div className="flex flex-col items-start gap-6 max-w-2xl">
+          {/* Availability Badge */}
+          <motion.div
+            variants={itemVariants}
+            className="inline-flex items-center gap-2 rounded-full border border-zinc-800 bg-zinc-900/30 px-3.5 py-1 text-xs text-zinc-400"
+          >
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span>
+            <span>Available for new opportunities</span>
+          </motion.div>
+
+          {/* Heading */}
+          <motion.h1
+            variants={itemVariants}
+            className="text-4xl md:text-[64px] font-bold tracking-[-0.02em] leading-[1.1] text-zinc-50"
+          >
+            Architecting intelligent <br />
+            <span className="text-zinc-400">systems.</span> <br />
+            <span className="text-zinc-500 text-3xl md:text-5xl font-semibold mt-2 block">
+              Full Stack & Generative AI
+            </span>
+          </motion.h1>
+
+          {/* Subheading */}
+          <motion.p
+            variants={itemVariants}
+            className="text-base md:text-lg leading-relaxed text-zinc-400"
+          >
+            I build high-performance, scalable applications bridging the gap between
+            sophisticated backend infrastructure and AI-driven user experiences.
+          </motion.p>
+
+          {/* Action Buttons */}
+          <motion.div variants={itemVariants} className="flex flex-wrap gap-4 mt-2">
+            {/* Primary Action */}
+            <Link
+              href="/projects"
+              className="inline-flex items-center justify-center gap-2 h-10 px-5 rounded-full bg-zinc-50 text-zinc-950 font-medium text-xs hover:bg-zinc-200 transition-colors duration-200"
+            >
+              <span>Explore Work</span>
+              <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
+
+            {/* Secondary Action */}
+            <a
+              href="#"
+              className="inline-flex items-center justify-center gap-2 h-10 px-5 rounded-full border border-zinc-800 bg-zinc-950/20 text-zinc-400 font-medium text-xs hover:bg-zinc-900 hover:text-zinc-200 transition-all duration-200"
+            >
+              <Download className="h-3.5 w-3.5" />
+              <span>Download Resume</span>
+            </a>
+          </motion.div>
+        </div>
+
+        {/* Right Column (User Photo with Animated Glossy Border) */}
         <motion.div
           variants={itemVariants}
-          className="inline-flex items-center gap-2 rounded-full border border-zinc-800 bg-zinc-900/30 px-3.5 py-1 text-xs text-zinc-400"
+          className="relative shrink-0 rounded-[2.5rem] p-[2px] overflow-hidden bg-zinc-950/20 border border-zinc-850"
         >
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-          </span>
-          <span>Available for new opportunities</span>
-        </motion.div>
-
-        {/* Heading */}
-        <motion.h1
-          variants={itemVariants}
-          className="text-4xl md:text-[64px] font-bold tracking-[-0.02em] leading-[1.1] text-zinc-50"
-        >
-          Architecting intelligent <br />
-          <span className="text-zinc-400">systems.</span> <br />
-          <span className="text-zinc-500 text-3xl md:text-5xl font-semibold mt-2 block">
-            Full Stack & Generative AI
-          </span>
-        </motion.h1>
-
-        {/* Subheading */}
-        <motion.p
-          variants={itemVariants}
-          className="text-base md:text-lg leading-relaxed text-zinc-400"
-        >
-          I build high-performance, scalable applications bridging the gap between
-          sophisticated backend infrastructure and AI-driven user experiences.
-        </motion.p>
-
-        {/* Action Buttons */}
-        <motion.div variants={itemVariants} className="flex flex-wrap gap-4 mt-2">
-          {/* Primary Action */}
-          <Link
-            href="/projects"
-            className="inline-flex items-center justify-center gap-2 h-10 px-5 rounded-full bg-zinc-50 text-zinc-950 font-medium text-xs hover:bg-zinc-200 transition-colors duration-200"
-          >
-            <span>Explore Work</span>
-            <ArrowRight className="h-3.5 w-3.5" />
-          </Link>
-
-          {/* Secondary Action */}
-          <a
-            href="#"
-            className="inline-flex items-center justify-center gap-2 h-10 px-5 rounded-full border border-zinc-800 bg-zinc-950/20 text-zinc-400 font-medium text-xs hover:bg-zinc-900 hover:text-zinc-200 transition-all duration-200"
-          >
-            <Download className="h-3.5 w-3.5" />
-            <span>Download Resume</span>
-          </a>
+          {/* Shimmer Border Rotation background */}
+          <motion.div
+            className="absolute inset-[-100%] bg-[conic-gradient(from_0deg,#18181b,#10b981,#18181b,#34d399,#18181b,#a7f3d0,#18181b)]"
+            animate={{ rotate: 360 }}
+            transition={{ duration: 6, ease: "linear", repeat: Infinity }}
+          />
+          {/* Inner masking container */}
+          <div className="relative w-44 h-56 sm:w-56 sm:h-72 md:w-68 md:h-88 rounded-[2.4rem] overflow-hidden bg-zinc-950">
+            <Image
+              src="https://res.cloudinary.com/denwbzv51/image/upload/v1782629273/68af4b92-60a0-4786-b24e-8378187a1fe2_nho1tr.jpg"
+              alt="Tejas Pagare"
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
         </motion.div>
       </motion.section>
 

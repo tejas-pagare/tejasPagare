@@ -28,7 +28,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
   const nextProject = projectsData[(projectIndex + 1) % projectsData.length];
 
   return (
-    <div className="mx-auto max-w-[1024px] px-6 md:px-8 py-12 md:py-20 flex flex-col gap-12">
+    <div className="mx-auto max-w-[1024px] px-4 md:px-8 py-12 lg:py-24 flex flex-col gap-12">
       {/* Header Section */}
       <div className="flex flex-col items-start gap-4">
         <Link

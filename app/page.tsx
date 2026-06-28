@@ -29,16 +29,16 @@ export default function Home() {
   };
 
   return (
-    <div className="mx-auto max-w-[1024px] px-6 md:px-8 py-12 md:py-20 flex flex-col gap-20">
+    <div className="mx-auto max-w-[1024px] w-full px-4 md:px-8 py-12 lg:py-24 flex flex-col gap-12 md:gap-20 overflow-x-hidden">
       {/* Hero Section */}
       <motion.section
         variants={containerVariants}
         initial="hidden"
         animate="show"
-        className="flex flex-col-reverse md:flex-row md:items-center justify-between gap-10 w-full"
+        className="flex flex-col-reverse md:flex-row items-center md:items-center justify-between gap-10 md:gap-12 w-full"
       >
         {/* Left Column (Text & Actions) */}
-        <div className="flex flex-col items-start gap-6 max-w-2xl">
+        <div className="flex flex-col items-center md:items-start gap-6 max-w-2xl w-full">
           {/* Availability Badge */}
           <motion.div
             variants={itemVariants}
@@ -54,7 +54,7 @@ export default function Home() {
           {/* Heading */}
           <motion.h1
             variants={itemVariants}
-            className="text-4xl md:text-[64px] font-bold tracking-[-0.02em] leading-[1.1] text-zinc-50"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-[-0.02em] leading-[1.1] text-zinc-50 text-center md:text-left"
           >
             Architecting intelligent <br />
             <span className="text-zinc-400">systems.</span> <br />
@@ -66,18 +66,21 @@ export default function Home() {
           {/* Subheading */}
           <motion.p
             variants={itemVariants}
-            className="text-base md:text-lg leading-relaxed text-zinc-400"
+            className="text-base md:text-lg leading-relaxed text-zinc-400 text-center md:text-left"
           >
             I build high-performance, scalable applications bridging the gap between
             sophisticated backend infrastructure and AI-driven user experiences.
           </motion.p>
 
           {/* Action Buttons */}
-          <motion.div variants={itemVariants} className="flex flex-wrap gap-4 mt-2">
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-col sm:flex-row gap-4 mt-2 w-full sm:w-auto justify-center md:justify-start"
+          >
             {/* Primary Action */}
             <Link
               href="/projects"
-              className="inline-flex items-center justify-center gap-2 h-10 px-5 rounded-full bg-zinc-50 text-zinc-950 font-medium text-xs hover:bg-zinc-200 transition-colors duration-200"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 h-10 px-5 rounded-full bg-zinc-50 text-zinc-950 font-medium text-xs hover:bg-zinc-200 transition-colors duration-200"
             >
               <span>Explore Work</span>
               <ArrowRight className="h-3.5 w-3.5" />
@@ -85,8 +88,10 @@ export default function Home() {
 
             {/* Secondary Action */}
             <a
-              href="#"
-              className="inline-flex items-center justify-center gap-2 h-10 px-5 rounded-full border border-zinc-800 bg-zinc-950/20 text-zinc-400 font-medium text-xs hover:bg-zinc-900 hover:text-zinc-200 transition-all duration-200"
+              href="https://res.cloudinary.com/denwbzv51/image/upload/v1782630369/TejasPagare_ykpfys.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 h-10 px-5 rounded-full border border-zinc-800 bg-zinc-950/20 text-zinc-400 font-medium text-xs hover:bg-zinc-900 hover:text-zinc-200 transition-all duration-200"
             >
               <Download className="h-3.5 w-3.5" />
               <span>Download Resume</span>
@@ -97,7 +102,7 @@ export default function Home() {
         {/* Right Column (User Photo with Animated Glossy Border) */}
         <motion.div
           variants={itemVariants}
-          className="relative shrink-0 rounded-[2.5rem] p-[2px] overflow-hidden bg-zinc-950/20 border border-zinc-850"
+          className="relative shrink-0 rounded-[2.5rem] p-[2px] overflow-hidden bg-zinc-950/20 border border-zinc-850 isolate z-0"
         >
           {/* Shimmer Border Rotation background */}
           <motion.div

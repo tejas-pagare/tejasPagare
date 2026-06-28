@@ -30,7 +30,7 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="mx-auto max-w-[1024px] px-6 md:px-8 py-12 md:py-20 flex flex-col gap-12">
+    <div className="mx-auto max-w-[1024px] px-4 md:px-8 py-12 lg:py-24 flex flex-col gap-12">
       {/* Header Section */}
       <div className="flex flex-col gap-3 max-w-2xl border-b border-zinc-900 pb-8">
         <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-zinc-50">

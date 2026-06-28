@@ -1,0 +1,77 @@
+[
+  {
+    "slug": "swiftmart",
+    "title": "SwiftMart",
+    "type": "Full Stack Development",
+    "timeline": "Recent",
+    "techStack": [
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "Redis",
+      "EJS"
+    ],
+    "shortDescription": "A sustainable, multi-role e-commerce platform for circular fashion and recycled apparel.",
+    "imageUrl": "https://res.cloudinary.com/denwbzv51/image/upload/v1782620204/Swiftmart_efskmy.png",
+    "images": [
+      "https://res.cloudinary.com/denwbzv51/image/upload/v1782623582/Screenshot_2026-06-28_at_10.33.51_AM_q9xefv.png",
+      "https://res.cloudinary.com/denwbzv51/image/upload/v1782623525/Screenshot_2026-06-28_at_10.33.58_AM_n5ar6a.png",
+      "https://res.cloudinary.com/denwbzv51/image/upload/v1782623756/Screenshot_2026-06-28_at_10.33.14_AM_ibqie0.png",
+      "https://res.cloudinary.com/denwbzv51/image/upload/v1782623066/Screenshot_2026-06-28_at_10.33.44_AM_cthnvq.png",
+      "https://res.cloudinary.com/denwbzv51/image/upload/v1782623066/Screenshot_2026-06-28_at_10.30.47_AM_lohcga.png"
+    ],
+    "links": {
+      "live": "https://fdfed-frontend.vercel.app",
+      "github": "https://github.com/tejas-pagare/E-commerece"
+    },
+    "details": {
+      "overview": "SwiftMart was architected to solve challenges in the circular fashion economy by providing a comprehensive, dual-sided marketplace. The platform connects standard consumers with sellers, and industry partners to trade new and recycled apparel.",
+      "architecture": "The system architecture prioritizes high throughput and low latency by utilizing Redis for highly optimized database caching and pagination. This approach ensures rapid data delivery and seamless data aggregation across complex, multi-tenant analytical dashboards.",
+      "keyFeatures": [
+        "Developed a comprehensive e-commerce platform featuring dedicated user and industry portals to facilitate a dual-sided marketplace for circular fashion.",
+        "Achieved a 35% reduction in average API response latency and doubled system throughput by engineering high-performance backend logic using Redis database caching and pagination.",
+        "Developed advanced analytical dashboards for managers and industry partners, enabling precise tracking of revenue streams, user growth, and overarching project metrics.",
+        "Achieved increased user engagement by developing a gamified eco-points loyalty system seamlessly integrated into the primary user dashboard."
+      ]
+    }
+  },
+  {
+    "slug": "hireheaven",
+    "title": "HireHeaven",
+    "type": "Full Stack Development",
+    "timeline": "Recent",
+    "techStack": [
+      "Node.js",
+      "PostgreSQL",
+      "Redis",
+      "React",
+      "Docker",
+      "Kafka",
+      "Groq LLM"
+    ],
+    "shortDescription": "A microservices-based job portal utilizing AI and vector databases for semantic candidate matching.",
+    "imageUrl": "https://res.cloudinary.com/denwbzv51/image/upload/v1782624031/Screenshot_2026-06-28_at_10.04.53_AM_bh0jg2.png",
+    "images": [
+      "https://res.cloudinary.com/denwbzv51/image/upload/v1782624031/Screenshot_2026-06-28_at_10.04.53_AM_bh0jg2.png",
+      "https://res.cloudinary.com/denwbzv51/image/upload/v1782624027/Screenshot_2026-06-28_at_10.48.21_AM_nbpgmo.png",
+      "https://res.cloudinary.com/denwbzv51/image/upload/v1782624027/Screenshot_2026-06-28_at_10.49.44_AM_ijd3yy.png",
+      "https://res.cloudinary.com/denwbzv51/image/upload/v1782624025/Screenshot_2026-06-28_at_10.37.20_AM_jnlcsr.png",
+      "https://res.cloudinary.com/denwbzv51/image/upload/v1782624027/Screenshot_2026-06-28_at_10.49.23_AM_a2mp37.png",
+      "https://res.cloudinary.com/denwbzv51/image/upload/v1782624026/Screenshot_2026-06-28_at_10.48.58_AM_hh6wqc.png",
+      "https://res.cloudinary.com/denwbzv51/image/upload/v1782624026/Screenshot_2026-06-28_at_10.37.39_AM_y0zvhx.png"
+    ],
+    "links": {
+      "live": "https://hire-heaven-gry764prp-tejas-pagares-projects.vercel.app",
+      "github": "https://github.com/tejas-pagare/HireHeaven"
+    },
+    "details": {
+      "overview": "HireHeaven streamlines the recruitment process by connecting recruiters and job seekers through a modern, microservices-driven platform with real-time intelligence.",
+      "architecture": "The platform relies on a distributed architecture using Docker and Kafka event streaming, integrated with a Retrieval-Augmented Generation (RAG) pipeline via pgvector.",
+      "keyFeatures": [
+        "Developed a streamlined job portal featuring real-time chat, role-based analytics, and Razorpay payment integration.",
+        "Achieved automated job matching and enabled natural language candidate queries by implementing a RAG pipeline.",
+        "Developed an AI-powered resume intelligence system utilizing pgvector and Groq LLM for highly accurate semantic searches."
+      ]
+    }
+  }
+]

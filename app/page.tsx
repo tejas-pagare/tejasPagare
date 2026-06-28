@@ -8,6 +8,40 @@ import { motion } from "framer-motion";
 import ProjectCard from "@/components/project-card";
 import projectsData from "@/data/project.json";
 
+const TECH_SKILLS = [
+  "NEXT.JS 14+",
+  "FASTAPI",
+  "NODE.JS",
+  "EXPRESS.JS",
+  "REST APIS",
+  "JWT",
+  "REDIS",
+  "JEST TESTING",
+  "JAVA",
+  "PYTHON",
+  "TYPESCRIPT",
+  "JAVASCRIPT",
+  "POSTGRESQL",
+  "MONGODB",
+  "AWS (EC2, SES)",
+  "DOCKER",
+  "KUBERNETES",
+  "NGINX",
+  "GIT",
+  "GITHUB",
+  "LANGCHAIN",
+  "LANGGRAPH",
+  "PGVECTOR",
+  "LLMS",
+  "RAG",
+  "MCP",
+  "OPENAI",
+  "GEMINI",
+  "CLAUDE",
+  "CURSOR",
+  "DATA STRUCTURES & ALGORITHMS"
+];
+
 export default function Home() {
   // Grab the first two projects for the featured section
   const featuredProjects = projectsData.slice(0, 2);
@@ -128,23 +162,36 @@ export default function Home() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.4, duration: 0.5 }}
-        className="w-full border-y border-zinc-850 py-4 overflow-x-auto scrollbar-none"
+        className="relative w-full border-y border-zinc-850 py-4 overflow-hidden before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-16 before:bg-gradient-to-r before:from-zinc-950 before:to-transparent before:content-[''] after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-16 after:bg-gradient-to-l after:from-zinc-950 after:to-transparent after:content-['']"
       >
-        <div className="flex items-center justify-between min-w-max gap-8 px-4 text-xs font-mono font-bold tracking-[0.2em] text-zinc-500 uppercase">
-          <span>NEXT.JS 14+</span>
-          <span>·</span>
-          <span>FASTAPI</span>
-          <span>·</span>
-          <span>DOCKER</span>
-          <span>·</span>
-          <span>KUBERNETES</span>
-          <span>·</span>
-          <span>POSTGRESQL</span>
-          <span>·</span>
-          <span>REDIS</span>
-          <span>·</span>
-          <span>NODE.JS</span>
-        </div>
+        <motion.div
+          className="flex"
+          animate={{ x: [0, "-50%"] }}
+          transition={{
+            ease: "linear",
+            duration: 30,
+            repeat: Infinity,
+          }}
+        >
+          {/* Track 1 */}
+          <div className="flex min-w-full shrink-0 items-center justify-around gap-8 text-xs font-mono font-bold tracking-[0.2em] text-zinc-500 uppercase pr-8">
+            {TECH_SKILLS.map((skill, idx) => (
+              <React.Fragment key={`track1-${idx}`}>
+                <span>{skill}</span>
+                <span className="text-zinc-700">·</span>
+              </React.Fragment>
+            ))}
+          </div>
+          {/* Track 2 (Duplicate for seamless loop) */}
+          <div className="flex min-w-full shrink-0 items-center justify-around gap-8 text-xs font-mono font-bold tracking-[0.2em] text-zinc-500 uppercase pr-8">
+            {TECH_SKILLS.map((skill, idx) => (
+              <React.Fragment key={`track2-${idx}`}>
+                <span>{skill}</span>
+                <span className="text-zinc-700">·</span>
+              </React.Fragment>
+            ))}
+          </div>
+        </motion.div>
       </motion.div>
 
       {/* Featured Work Section */}

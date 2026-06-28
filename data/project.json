@@ -73,5 +73,46 @@
         "Developed an AI-powered resume intelligence system utilizing pgvector and Groq LLM for highly accurate semantic searches."
       ]
     }
+  },
+  {
+    "slug": "echosync",
+    "title": "EchoSync",
+    "type": "Full Stack Development",
+    "timeline": "Recent",
+    "techStack": [
+      "React",
+      "Node.js",
+      "Express",
+      "TypeScript",
+      "MongoDB",
+      "Socket.io",
+      "Tailwind CSS",
+      "Passport.js",
+      "Cloudinary",
+      "Zustand"
+    ],
+    "shortDescription": "A high-performance, real-time messaging platform featuring secure authentication, live presence tracking, and built-in chat intelligence.",
+    "imageUrl": "https://res.cloudinary.com/denwbzv51/image/upload/v1782662406/Screenshot_2026-06-28_at_9.26.50_PM_kf3xmx.png",
+    "images": [
+      "https://res.cloudinary.com/denwbzv51/image/upload/v1782662406/Screenshot_2026-06-28_at_9.26.50_PM_kf3xmx.png",
+      "https://res.cloudinary.com/denwbzv51/image/upload/v1782662406/Screenshot_2026-06-28_at_9.27.24_PM_zdhkvp.png",
+      "https://res.cloudinary.com/denwbzv51/image/upload/v1782662406/Screenshot_2026-06-28_at_9.27.51_PM_apuxty.png"
+    ],
+    "links": {
+      "live": "",
+      "github": "https://github.com/tejas-pagare/echosync"
+    },
+    "details": {
+      "overview": "EchoSync is a high-performance, real-time messaging platform engineered with a modern full-stack TypeScript architecture. The platform delivers instant message propagation, robust direct messaging, complex group chat configurations, and built-in conversational helper intelligence directly inside the user interface.",
+      "architecture": "The system divides backend computing into a stateless REST API pipeline and a real-time messaging layer. It uses Socket.io handshakes to maintain connection persistence, evaluate auth state, and track active presence maps. Secure API routing is guarded by a Passport.js JWT validation strategy, streaming validated client records cleanly into MongoDB via Mongoose schemas.",
+      "keyFeatures": [
+        "Engineered a real-time messaging layer utilizing Socket.io to manage dual-channel updates, room join/leave events, and dynamic user typing indicators.",
+        "Implemented active presence tracking to monitor, manage, and propagate live user online and offline status changes across the platform.",
+        "Developed a robust multi-strategy authentication layer powered by Passport.js with secure HTTP-only cookies and JWTs.",
+        "Integrated Cloudinary cloud storage to manage rich media attachments and image uploads seamlessly for versatile messaging profiles.",
+        "Embedded an intelligent conversational chatbot assistant (Whop AI) directly inside the main UI pipeline to serve as an on-demand user helper.",
+        "Designed a modern glassmorphism web layout leveraging Tailwind CSS and Radix UI primitives configured entirely with uniform light and dark mode OKLCH color spacing."
+      ]
+    }
   }
 ]

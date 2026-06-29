@@ -144,29 +144,89 @@ export default function Home() {
           </motion.div>
         </div>
 
-        {/* Right Column (User Photo with Animated Glossy Border) */}
-        <motion.div
-          id="hero-ai-guide"
-          variants={itemVariants}
-          className="relative shrink-0 rounded-[2.5rem] p-[2px] overflow-hidden bg-zinc-950/20 border border-zinc-850 isolate z-0"
-        >
-          {/* Shimmer Border Rotation background */}
-          <motion.div
-            className="absolute inset-[-100%] bg-[conic-gradient(from_0deg,#18181b,#10b981,#18181b,#34d399,#18181b,#a7f3d0,#18181b)]"
-            animate={{ rotate: 360 }}
-            transition={{ duration: 6, ease: "linear", repeat: Infinity }}
-          />
-          {/* Inner masking container */}
-          <div className="relative w-44 h-56 sm:w-56 sm:h-72 md:w-68 md:h-88 rounded-[2.4rem] overflow-hidden bg-zinc-950">
-            <Image
-              src="https://res.cloudinary.com/denwbzv51/image/upload/v1782629273/68af4b92-60a0-4786-b24e-8378187a1fe2_nho1tr.jpg"
-              alt="Tejas Pagare"
-              fill
-              className="object-cover"
-              priority
-            />
+        {/* Right Column Wrapper */}
+        <div className="relative shrink-0 isolate">
+          {/* Animated Arrow and Hii Bubble */}
+          <div className="absolute -top-16 -left-20 z-10 pointer-events-none select-none flex flex-col items-center">
+            {/* Speech Bubble */}
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0, y: 15 }}
+              animate={{ 
+                scale: [0.95, 1.05, 0.95],
+                opacity: 1, 
+                y: [0, -5, 0],
+                rotate: [-2, 2, -2]
+              }}
+              transition={{ 
+                duration: 4, 
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+              className="bg-zinc-900/90 border border-emerald-500/20 text-emerald-400 font-mono text-xs font-bold px-3 py-1.5 rounded-xl shadow-lg shadow-emerald-950/20 backdrop-blur-sm relative after:content-[''] after:absolute after:bottom-[-5px] after:left-[55%] after:-translate-x-1/2 after:border-t-6 after:border-t-zinc-900 after:border-x-6 after:border-x-transparent"
+            >
+              hii! 👋
+            </motion.div>
+            
+            {/* Curved Arrow SVG */}
+            <motion.svg
+              width="48"
+              height="48"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              className="text-emerald-500/60 mt-2 filter drop-shadow-[0_2px_8px_rgba(16,185,129,0.15)]"
+              initial={{ rotate: -15, opacity: 0 }}
+              animate={{ 
+                rotate: [-15, -3, -15],
+                x: [0, 2, 0],
+                y: [0, 2, 0],
+                opacity: 1 
+              }}
+              transition={{ 
+                duration: 4, 
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 0.2
+              }}
+            >
+              <path 
+                d="M 3,3 C 7,3 15,6 15,16" 
+                strokeWidth="2" 
+                strokeLinecap="round" 
+              />
+              <path 
+                d="M 9,15 L 15,16 L 16,10" 
+                strokeWidth="2" 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+              />
+            </motion.svg>
           </div>
-        </motion.div>
+
+          {/* Right Column (User Photo with Animated Glossy Border) */}
+          <motion.div
+            id="hero-ai-guide"
+            variants={itemVariants}
+            className="relative rounded-[2.5rem] p-[2px] overflow-hidden bg-zinc-950/20 border border-zinc-850 isolate z-0"
+          >
+            {/* Shimmer Border Rotation background */}
+            <motion.div
+              className="absolute inset-[-100%] bg-[conic-gradient(from_0deg,#18181b,#10b981,#18181b,#34d399,#18181b,#a7f3d0,#18181b)]"
+              animate={{ rotate: 360 }}
+              transition={{ duration: 6, ease: "linear", repeat: Infinity }}
+            />
+            {/* Inner masking container */}
+            <div className="relative w-44 h-56 sm:w-56 sm:h-72 md:w-68 md:h-88 rounded-[2.4rem] overflow-hidden bg-zinc-950">
+              <Image
+                src="https://res.cloudinary.com/denwbzv51/image/upload/v1782629273/68af4b92-60a0-4786-b24e-8378187a1fe2_nho1tr.jpg"
+                alt="Tejas Pagare"
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+          </motion.div>
+        </div>
       </motion.section>
 
       {/* Tech Stack Row */}

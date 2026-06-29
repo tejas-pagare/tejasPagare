@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import NavPill from "@/components/nav-pill";
+import PortfolioTour from "@/components/portfolio-tour";
 
 const geistSans = Geist({
   variable: "--font-sans",
@@ -31,6 +32,9 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-zinc-950 text-zinc-50 font-sans selection:bg-zinc-50/10 selection:text-zinc-50 overflow-x-hidden">
         {/* Floating Navigation Pill */}
         <NavPill />
+
+        {/* Interactive Onboarding Tour */}
+        <PortfolioTour />
 
         {/* Main Content Area */}
         <div className="flex-1 flex flex-col pt-28 overflow-x-hidden">

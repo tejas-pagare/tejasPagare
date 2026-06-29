@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Download } from "lucide-react";
+import { ArrowRight, Download, Compass } from "lucide-react";
 import { motion } from "framer-motion";
 import ProjectCard from "@/components/project-card";
 import projectsData from "@/data/project.json";
@@ -66,6 +66,7 @@ export default function Home() {
     <div className="mx-auto max-w-[1024px] w-full px-4 md:px-8 py-12 lg:py-24 flex flex-col gap-12 md:gap-20 overflow-x-hidden">
       {/* Hero Section */}
       <motion.section
+        id="hero-section"
         variants={containerVariants}
         initial="hidden"
         animate="show"
@@ -122,6 +123,7 @@ export default function Home() {
 
             {/* Secondary Action */}
             <a
+              id="resume-terminal"
               href="https://res.cloudinary.com/denwbzv51/image/upload/v1782630369/TejasPagare_ykpfys.pdf"
               target="_blank"
               rel="noopener noreferrer"
@@ -130,11 +132,21 @@ export default function Home() {
               <Download className="h-3.5 w-3.5" />
               <span>Download Resume</span>
             </a>
+
+            {/* Tour Action */}
+            <button
+              onClick={() => window.dispatchEvent(new CustomEvent("start-portfolio-tour"))}
+              className="hidden md:inline-flex w-full sm:w-auto items-center justify-center gap-2 h-10 px-5 rounded-full border border-zinc-800 bg-zinc-950/20 text-zinc-400 font-medium text-xs hover:bg-zinc-900 hover:text-zinc-200 transition-all duration-200 cursor-pointer"
+            >
+              <Compass className="h-3.5 w-3.5" />
+              <span>Take a Tour</span>
+            </button>
           </motion.div>
         </div>
 
         {/* Right Column (User Photo with Animated Glossy Border) */}
         <motion.div
+          id="hero-ai-guide"
           variants={itemVariants}
           className="relative shrink-0 rounded-[2.5rem] p-[2px] overflow-hidden bg-zinc-950/20 border border-zinc-850 isolate z-0"
         >
@@ -230,6 +242,133 @@ export default function Home() {
             />
           ))}
         </div>
+      </section>
+
+      {/* Coding Profiles Section */}
+      <section
+        id="engineering-stats"
+        className="w-full max-w-5xl mx-auto px-6 py-16 md:py-24 border-t border-zinc-900/60"
+      >
+        <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-zinc-50 mb-4">
+          Coding Profiles
+        </h2>
+        <p className="text-zinc-400 max-w-2xl leading-relaxed text-sm md:text-base mb-12">
+          Quantifying problem-solving velocity through algorithmic benchmarks, architectural efficiency, and open-source contributions.
+        </p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-6"
+        >
+          {/* Card 1: LeetCode */}
+          <a
+            href="https://leetcode.com/u/Tejas_1625/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex flex-col p-6 rounded-xl border border-zinc-900 bg-zinc-950/40 backdrop-blur-md justify-between transition-all duration-300 hover:-translate-y-0.5 hover:border-zinc-700 group"
+          >
+            <div className="flex items-center justify-between w-full">
+              <div className="flex items-center gap-2">
+                <svg className="w-5 h-5 text-orange-500 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M13.483 0a1.374 1.374 0 0 0-.961.414l-9.605 9.659a1.37 1.37 0 0 0-.006 1.936l1.3 1.3a1.37 1.37 0 0 0 1.93-.006l9.648-9.61a1.37 1.37 0 0 0-.002-1.93l-1.3-1.3a1.37 1.37 0 0 0-.904-.403zM9.548 11.233a1.37 1.37 0 0 0-1.93.006l-1.3 1.3a1.37 1.37 0 0 0 .006 1.93l9.605 9.604a1.37 1.37 0 0 0 1.93-.006l1.3-1.3a1.37 1.37 0 0 0-.006-1.93l-9.61-9.604zM16.143 5.485a1.37 1.37 0 0 0-1.93.006l-1.3 1.3a1.37 1.37 0 0 0 .006 1.93l3.61 3.61a1.37 1.37 0 0 0 1.93-.006l1.3-1.3a1.37 1.37 0 0 0-.006-1.93l-3.61-3.61z" />
+                </svg>
+                <span className="text-sm font-semibold text-zinc-200">LeetCode</span>
+              </div>
+              <span className="text-[10px] font-mono border border-zinc-800 bg-zinc-900/50 rounded-full px-2.5 py-0.5 text-zinc-400 group-hover:text-zinc-200 group-hover:border-zinc-700 transition-colors">
+                Profile &rarr;
+              </span>
+            </div>
+
+            <div className="flex flex-col gap-1 mt-6">
+              <span className="text-3xl font-bold tracking-tight text-zinc-50">600+</span>
+              <span className="text-[10px] tracking-wider text-zinc-500 font-mono">GLOBAL PROBLEMS SOLVED</span>
+            </div>
+
+            <div className="flex flex-col gap-2 mt-6 w-full">
+              <div className="flex justify-between items-center text-[10px] font-mono text-zinc-400">
+                <span>RATING: 1616</span>
+                <span>ATTENDED: 31</span>
+              </div>
+              <div className="h-1 w-full bg-zinc-900 rounded-full overflow-hidden">
+                <div className="h-full bg-zinc-700 w-[75%]" />
+              </div>
+            </div>
+          </a>
+
+          {/* Card 2: Codeforces */}
+          <a
+            href="https://codeforces.com/profile/tejas1625"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex flex-col p-6 rounded-xl border border-zinc-900 bg-zinc-950/40 backdrop-blur-md justify-between transition-all duration-300 hover:-translate-y-0.5 hover:border-zinc-700 group"
+          >
+            <div className="flex items-center justify-between w-full">
+              <div className="flex items-center gap-2">
+                <div className="flex items-end gap-[3px] w-5 h-5 justify-center pb-0.5">
+                  <div className="w-[3px] h-[9px] bg-red-500 rounded-[1px]" />
+                  <div className="w-[3px] h-[15px] bg-blue-500 rounded-[1px]" />
+                  <div className="w-[3px] h-[12px] bg-sky-400 rounded-[1px]" />
+                </div>
+                <span className="text-sm font-semibold text-zinc-200">Codeforces</span>
+              </div>
+              <span className="text-[10px] font-mono border border-zinc-800 bg-zinc-900/50 rounded-full px-2.5 py-0.5 text-zinc-400 group-hover:text-zinc-200 group-hover:border-zinc-700 transition-colors">
+                Profile &rarr;
+              </span>
+            </div>
+
+            <div className="flex flex-col gap-1 mt-6">
+              <span className="text-3xl font-bold tracking-tight text-zinc-50">964</span>
+              <span className="text-[10px] tracking-wider text-zinc-500 font-mono">PEAK CONTEST RATING</span>
+            </div>
+
+            <div className="flex flex-col gap-2 mt-6 w-full">
+              <div className="flex justify-between items-center text-[10px] font-mono text-zinc-400">
+                <span>ACTIVE CONTESTANT</span>
+                <span>NEWBIE</span>
+              </div>
+              <div className="h-1 w-full bg-zinc-900 rounded-full overflow-hidden">
+                <div className="h-full bg-zinc-700 w-[55%]" />
+              </div>
+            </div>
+          </a>
+
+          {/* Card 3: GitHub */}
+          <a
+            href="https://github.com/tejas-pagare"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex flex-col p-6 rounded-xl border border-zinc-900 bg-zinc-950/40 backdrop-blur-md justify-between transition-all duration-300 hover:-translate-y-0.5 hover:border-zinc-700 group"
+          >
+            <div className="flex items-center justify-between w-full">
+              <div className="flex items-center gap-2">
+                <svg className="w-5 h-5 text-zinc-100 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.577.688.479C19.138 20.162 22 16.418 22 12c0-5.523-4.477-10-10-10z" />
+                </svg>
+                <span className="text-sm font-semibold text-zinc-200">GitHub</span>
+              </div>
+              <span className="text-[10px] font-mono border border-zinc-800 bg-zinc-900/50 rounded-full px-2.5 py-0.5 text-zinc-400 group-hover:text-zinc-200 group-hover:border-zinc-700 transition-colors">
+                Profile &rarr;
+              </span>
+            </div>
+
+            <div className="flex flex-col gap-1 mt-6">
+              <span className="text-3xl font-bold tracking-tight text-zinc-50">400+ Commits</span>
+              <span className="text-[10px] tracking-wider text-zinc-500 font-mono">OPEN SOURCE CONTRIBUTIONS</span>
+            </div>
+
+            <div className="flex flex-col gap-2 mt-6 w-full">
+              <div className="flex justify-between items-center text-[10px] font-mono text-zinc-400">
+                <span>MERN & FASTAPI</span>
+                <span>46 PRS</span>
+              </div>
+              <div className="h-1 w-full bg-zinc-900 rounded-full overflow-hidden">
+                <div className="h-full bg-zinc-700 w-[80%]" />
+              </div>
+            </div>
+          </a>
+        </motion.div>
       </section>
     </div>
   );

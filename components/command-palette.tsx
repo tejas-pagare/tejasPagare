@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState, useRef } from "react";
 import { useRouter } from "next/navigation";
-import { Search, FileText, Briefcase, Mail, Home, ArrowRight } from "lucide-react";
+import { Search, FileText, Briefcase, Mail, Home, ArrowRight, PenLine } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import projectsData from "@/data/project.json";
 
@@ -55,6 +55,7 @@ export default function CommandPalette({ isOpen, setIsOpen }: CommandPaletteProp
     { name: "Home", path: "/", icon: Home, category: "Navigation" },
     { name: "Projects", path: "/projects", icon: FileText, category: "Navigation" },
     { name: "Experience", path: "/experience", icon: Briefcase, category: "Navigation" },
+    { name: "Blog", path: "/blog", icon: PenLine, category: "Navigation" },
     { name: "Contact", path: "/contact", icon: Mail, category: "Navigation" },
   ];
 

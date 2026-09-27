@@ -51,7 +51,7 @@ export default function ContactPage() {
               transition={{ duration: 0.3 }}
               className="flex flex-col items-center text-center p-8 rounded-md border border-zinc-800 bg-zinc-900/10"
             >
-              <div className="h-12 w-12 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-4 text-emerald-400">
+              <div className="h-12 w-12 rounded-full bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center mb-4 text-indigo-400">
                 <CheckCircle2 className="h-6 w-6" />
               </div>
               <h3 className="text-lg font-semibold text-zinc-50 mb-2">

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
 import NavPill from "@/components/nav-pill";
 import PortfolioTour from "@/components/portfolio-tour";
 
@@ -45,9 +46,12 @@ export default function RootLayout({
         <footer className="w-full border-t border-zinc-800 bg-zinc-950/20 py-8 px-6 md:px-8 mt-auto">
           <div className="mx-auto max-w-[1024px] flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-zinc-500 font-medium">
             <div>
-              © 2024 Developer Portfolio. Built with architectural rigor.
+              © {new Date().getFullYear()} Tejas Pagare. Built with architectural rigor.
             </div>
             <div className="flex items-center gap-6">
+              <Link href="/blog" className="hover:text-zinc-300 transition-colors">
+                Blog
+              </Link>
               <a
                 href="https://github.com/tejas-pagare"
                 target="_blank"

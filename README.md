@@ -34,3 +34,23 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Blog & admin
+
+Posts are written at `/admin` (protected) and published at `/blog`.
+
+1. Generate credentials:
+   ```bash
+   npm run hash-password -- "your-strong-password"
+   ```
+2. Copy `.env.example` to `.env.local` and fill in `ADMIN_EMAIL`, plus the
+   `ADMIN_PASSWORD_HASH` and `AUTH_SECRET` printed above. Add the same variables
+   to your hosting provider.
+3. Storage: without `MONGODB_URI`, posts are saved to `data/posts.json` (local
+   dev only). Set `MONGODB_URI` (e.g. a free MongoDB Atlas cluster) in production.
+4. Images (optional): set `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY` and
+   `CLOUDINARY_API_SECRET` to upload a cover image, or paste/drop images into the
+   editor. Uploads go straight from the browser to Cloudinary using a signature
+   that only a signed-in admin can get. Without these, you can still paste image URLs.
+5. Visit `/admin/login`, sign in, and write in Markdown with live preview.
+   Drafts are only visible to you; `⌘S` saves.

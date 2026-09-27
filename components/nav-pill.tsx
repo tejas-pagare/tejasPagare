@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, Folder, Briefcase, Mail, Terminal } from "lucide-react";
+import { Home, Folder, Briefcase, Mail, Terminal, PenLine } from "lucide-react";
 import { motion } from "framer-motion";
 import CommandPalette from "./command-palette";
 
@@ -15,6 +15,7 @@ export default function NavPill() {
     { name: "Home", href: "/", icon: Home },
     { name: "Projects", href: "/projects", icon: Folder },
     { name: "Experience", href: "/experience", icon: Briefcase },
+    { name: "Blog", href: "/blog", icon: PenLine },
     { name: "Contact", href: "/contact", icon: Mail },
   ];
 

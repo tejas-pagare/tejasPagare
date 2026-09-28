@@ -61,20 +61,12 @@ export default function RootLayout({
                 GitHub
               </a>
               <a
-                href="https://linkedin.com/in/tejas-pagare"
+                href="https://www.linkedin.com/in/tejas-pagare-45671a2a7/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-zinc-300 transition-colors"
               >
                 LinkedIn
-              </a>
-              <a
-                href="https://twitter.com/tejas_pagare"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-zinc-300 transition-colors"
-              >
-                Twitter
               </a>
             </div>
           </div>

@@ -42,11 +42,10 @@ export default function HeroSection() {
               href="/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              download
               className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-full border border-zinc-800 px-6 text-xs font-medium text-zinc-300 hover:bg-zinc-900 hover:text-zinc-50 sm:w-auto"
             >
               <Download className="h-3.5 w-3.5" />
-              <span>Download Resume</span>
+              <span>View Resume</span>
             </a>
             <button
               onClick={() => window.dispatchEvent(new CustomEvent("start-portfolio-tour"))}

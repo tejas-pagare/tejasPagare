@@ -6,6 +6,7 @@ import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import ProjectCard from "@/components/project-card";
 import HeroSection from "@/components/hero/hero-section";
+import { ScrollReveal, ScrollRevealGroup, ScrollRevealItem } from "@/components/scroll-reveal";
 import projectsData from "@/data/project.json";
 
 const TECH_SKILLS = [
@@ -90,7 +91,7 @@ export default function HomeView({ latestPosts }: { latestPosts?: React.ReactNod
 
         {/* Featured Work Section */}
         <section className="flex flex-col gap-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+          <ScrollReveal className="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div className="flex flex-col gap-2 max-w-xl">
               <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-zinc-50">
                 Featured Work
@@ -107,29 +108,30 @@ export default function HomeView({ latestPosts }: { latestPosts?: React.ReactNod
               <span>View all projects</span>
               <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
             </Link>
-          </div>
+          </ScrollReveal>
 
           {/* Projects Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <ScrollRevealGroup className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {featuredProjects.map((project) => (
-              <ProjectCard
-                key={project.slug}
-                slug={project.slug}
-                title={project.title}
-                shortDescription={project.shortDescription}
-                techStack={project.techStack}
-                type={project.type}
-                badge={project.slug === "swiftmart" ? "Featured" : undefined}
-                imageUrl={(project as any).imageUrl}
-              />
+              <ScrollRevealItem key={project.slug}>
+                <ProjectCard
+                  slug={project.slug}
+                  title={project.title}
+                  shortDescription={project.shortDescription}
+                  techStack={project.techStack}
+                  type={project.type}
+                  badge={project.slug === "swiftmart" ? "Featured" : undefined}
+                  imageUrl={(project as any).imageUrl}
+                />
+              </ScrollRevealItem>
             ))}
-          </div>
+          </ScrollRevealGroup>
         </section>
 
         {/* Latest Writing Section (rendered on the server and slotted in) */}
         {latestPosts && (
           <section className="flex flex-col gap-8">
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+            <ScrollReveal className="flex flex-col md:flex-row md:items-end justify-between gap-4">
               <div className="flex flex-col gap-2 max-w-xl">
                 <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-zinc-50">
                   Latest Writing
@@ -145,8 +147,8 @@ export default function HomeView({ latestPosts }: { latestPosts?: React.ReactNod
                 <span>Read the blog</span>
                 <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
               </Link>
-            </div>
-            {latestPosts}
+            </ScrollReveal>
+            <ScrollReveal delay={0.1}>{latestPosts}</ScrollReveal>
           </section>
         )}
 
@@ -155,25 +157,25 @@ export default function HomeView({ latestPosts }: { latestPosts?: React.ReactNod
           id="engineering-stats"
           className="w-full max-w-5xl mx-auto px-6 py-16 md:py-24 border-t border-zinc-900/60"
         >
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-zinc-50 mb-4">
-            Coding Profiles
-          </h2>
-          <p className="text-zinc-400 max-w-2xl leading-relaxed text-sm md:text-base mb-12">
-            Quantifying problem-solving velocity through algorithmic benchmarks, architectural efficiency, and open-source contributions.
-          </p>
+          <ScrollReveal>
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-zinc-50 mb-4">
+              Coding Profiles
+            </h2>
+            <p className="text-zinc-400 max-w-2xl leading-relaxed text-sm md:text-base mb-12">
+              Quantifying problem-solving velocity through algorithmic benchmarks, architectural efficiency, and open-source contributions.
+            </p>
+          </ScrollReveal>
 
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-6"
-          >
+          <ScrollRevealGroup className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Card 1: LeetCode */}
-            <a
+            <ScrollRevealItem>
+            <motion.a
               href="https://leetcode.com/u/Tejas_1625/"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex flex-col p-6 rounded-xl border border-zinc-900 bg-zinc-950/40 backdrop-blur-md justify-between transition-all duration-300 hover:-translate-y-0.5 hover:border-zinc-700 group"
+              whileHover={{ y: -4 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
+              className="flex flex-col p-6 rounded-xl border border-zinc-900 bg-zinc-950/40 backdrop-blur-md justify-between hover:border-zinc-700 group"
             >
               <div className="flex items-center justify-between w-full">
                 <div className="flex items-center gap-2">
@@ -201,14 +203,18 @@ export default function HomeView({ latestPosts }: { latestPosts?: React.ReactNod
                   <div className="h-full bg-zinc-700 w-[75%]" />
                 </div>
               </div>
-            </a>
+            </motion.a>
+            </ScrollRevealItem>
 
             {/* Card 2: Codeforces */}
-            <a
+            <ScrollRevealItem>
+            <motion.a
               href="https://codeforces.com/profile/tejas1625"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex flex-col p-6 rounded-xl border border-zinc-900 bg-zinc-950/40 backdrop-blur-md justify-between transition-all duration-300 hover:-translate-y-0.5 hover:border-zinc-700 group"
+              whileHover={{ y: -4 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
+              className="flex flex-col p-6 rounded-xl border border-zinc-900 bg-zinc-950/40 backdrop-blur-md justify-between hover:border-zinc-700 group"
             >
               <div className="flex items-center justify-between w-full">
                 <div className="flex items-center gap-2">
@@ -238,14 +244,18 @@ export default function HomeView({ latestPosts }: { latestPosts?: React.ReactNod
                   <div className="h-full bg-zinc-700 w-[55%]" />
                 </div>
               </div>
-            </a>
+            </motion.a>
+            </ScrollRevealItem>
 
             {/* Card 3: GitHub */}
-            <a
+            <ScrollRevealItem>
+            <motion.a
               href="https://github.com/tejas-pagare"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex flex-col p-6 rounded-xl border border-zinc-900 bg-zinc-950/40 backdrop-blur-md justify-between transition-all duration-300 hover:-translate-y-0.5 hover:border-zinc-700 group"
+              whileHover={{ y: -4 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
+              className="flex flex-col p-6 rounded-xl border border-zinc-900 bg-zinc-950/40 backdrop-blur-md justify-between hover:border-zinc-700 group"
             >
               <div className="flex items-center justify-between w-full">
                 <div className="flex items-center gap-2">
@@ -273,8 +283,9 @@ export default function HomeView({ latestPosts }: { latestPosts?: React.ReactNod
                   <div className="h-full bg-zinc-700 w-[80%]" />
                 </div>
               </div>
-            </a>
-          </motion.div>
+            </motion.a>
+            </ScrollRevealItem>
+          </ScrollRevealGroup>
         </section>
       </div>
     </>

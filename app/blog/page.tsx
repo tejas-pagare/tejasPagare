@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { PenLine } from "lucide-react";
 import PostCard from "@/components/post-card";
+import { ScrollRevealGroup, ScrollRevealItem } from "@/components/scroll-reveal";
 import { posts } from "@/lib/blog/store";
 import { cn } from "@/lib/utils";
 
@@ -57,11 +58,13 @@ export default async function BlogPage({ searchParams }: { searchParams: Promise
           </p>
         </div>
       ) : (
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+        <ScrollRevealGroup className="grid grid-cols-1 gap-5 md:grid-cols-2">
           {visible.map((post) => (
-            <PostCard key={post.id} post={post} />
+            <ScrollRevealItem key={post.id}>
+              <PostCard post={post} />
+            </ScrollRevealItem>
           ))}
-        </div>
+        </ScrollRevealGroup>
       )}
     </div>
   );

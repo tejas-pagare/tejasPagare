@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { Loader2, Send, CheckCircle2, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { ScrollReveal } from "@/components/scroll-reveal";
 
 export default function ContactPage() {
   const [name, setName] = useState("");
@@ -32,16 +33,16 @@ export default function ContactPage() {
   return (
     <div className="mx-auto max-w-[1024px] px-4 md:px-8 py-12 lg:py-24 flex flex-col gap-12">
       {/* Header Section */}
-      <div className="flex flex-col gap-3 max-w-2xl border-b border-zinc-900 pb-8">
+      <ScrollReveal className="flex flex-col gap-3 max-w-2xl border-b border-zinc-900 pb-8">
         <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-zinc-50">
           Contact
         </h1>
         <p className="text-base md:text-lg leading-relaxed text-zinc-400">
           Let&rsquo;s connect. Drop me a line below and I&rsquo;ll get back to you as soon as possible.
         </p>
-      </div>
+      </ScrollReveal>
 
-      <div className="max-w-xl w-full mx-auto">
+      <ScrollReveal delay={0.1} className="max-w-xl w-full mx-auto">
         <AnimatePresence mode="wait">
           {status === "success" ? (
             <motion.div
@@ -84,7 +85,7 @@ export default function ContactPage() {
                 >
                   Name
                 </label>
-                <input
+                <motion.input
                   type="text"
                   id="name"
                   required
@@ -92,6 +93,8 @@ export default function ContactPage() {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="John Doe"
+                  whileFocus={{ scale: 1.01 }}
+                  transition={{ duration: 0.15 }}
                   className="w-full bg-zinc-950/40 border border-zinc-800 rounded-md px-4 py-3 text-sm text-zinc-50 placeholder-zinc-650 focus:border-zinc-400 outline-none transition-colors duration-200"
                 />
               </div>
@@ -104,7 +107,7 @@ export default function ContactPage() {
                 >
                   Email Address
                 </label>
-                <input
+                <motion.input
                   type="email"
                   id="email"
                   required
@@ -112,6 +115,8 @@ export default function ContactPage() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="john@example.com"
+                  whileFocus={{ scale: 1.01 }}
+                  transition={{ duration: 0.15 }}
                   className="w-full bg-zinc-950/40 border border-zinc-800 rounded-md px-4 py-3 text-sm text-zinc-50 placeholder-zinc-650 focus:border-zinc-400 outline-none transition-colors duration-200"
                 />
               </div>
@@ -124,7 +129,7 @@ export default function ContactPage() {
                 >
                   Message
                 </label>
-                <textarea
+                <motion.textarea
                   id="message"
                   required
                   rows={6}
@@ -132,15 +137,19 @@ export default function ContactPage() {
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   placeholder="Describe your project, ideas, or opportunity..."
+                  whileFocus={{ scale: 1.01 }}
+                  transition={{ duration: 0.15 }}
                   className="w-full bg-zinc-950/40 border border-zinc-800 rounded-md px-4 py-3 text-sm text-zinc-50 placeholder-zinc-650 focus:border-zinc-400 outline-none resize-none transition-colors duration-200"
                 />
               </div>
 
               {/* Submit Button */}
-              <button
+              <motion.button
                 type="submit"
                 disabled={status === "loading" || !name || !email || !message}
-                className="inline-flex items-center justify-center gap-2 h-10 w-full rounded-full bg-zinc-50 text-zinc-950 font-medium text-xs hover:bg-zinc-200 disabled:bg-zinc-800 disabled:text-zinc-600 disabled:cursor-not-allowed transition-all duration-200"
+                whileHover={status === "loading" ? {} : { scale: 1.02 }}
+                whileTap={status === "loading" ? {} : { scale: 0.98 }}
+                className="inline-flex items-center justify-center gap-2 h-10 w-full rounded-full bg-zinc-50 text-zinc-950 font-medium text-xs hover:bg-zinc-200 disabled:bg-zinc-800 disabled:text-zinc-600 disabled:cursor-not-allowed transition-colors duration-200"
               >
                 {status === "loading" ? (
                   <>
@@ -153,11 +162,11 @@ export default function ContactPage() {
                     <span>Send Message</span>
                   </>
                 )}
-              </button>
+              </motion.button>
             </motion.form>
           )}
         </AnimatePresence>
-      </div>
+      </ScrollReveal>
     </div>
   );
 }

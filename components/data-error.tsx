@@ -21,13 +21,13 @@ export default function DataError({
   return (
     <div className="mx-auto flex w-full max-w-md flex-1 flex-col items-center justify-center gap-4 px-4 py-24 text-center">
       <DatabaseZap className="h-6 w-6 text-zinc-500" />
-      <h1 className="text-lg font-semibold text-zinc-50">{title}</h1>
-      <p className="text-sm leading-relaxed text-zinc-400">
+      <h1 className="text-lg font-semibold text-zinc-950 dark:text-zinc-50">{title}</h1>
+      <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
         {hint ?? "Something went wrong while fetching data. Please try again in a moment."}
       </p>
       <button
         onClick={reset}
-        className="inline-flex h-9 items-center gap-2 rounded-full border border-zinc-800 px-4 text-xs font-medium text-zinc-300 hover:bg-zinc-900 hover:text-zinc-50"
+        className="inline-flex h-9 items-center gap-2 rounded-full border border-zinc-200 dark:border-zinc-800 px-4 text-xs font-medium text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-zinc-950 dark:hover:text-zinc-50"
       >
         <RotateCw className="h-3.5 w-3.5" />
         Try again

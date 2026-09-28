@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { Home, Folder, Briefcase, Mail, Terminal, PenLine } from "lucide-react";
 import { motion } from "framer-motion";
 import CommandPalette from "./command-palette";
+import ThemeToggle from "./theme-toggle";
 
 export default function NavPill() {
   const pathname = usePathname();
@@ -22,7 +23,7 @@ export default function NavPill() {
   return (
     <>
       <header className="fixed top-6 left-1/2 z-40 w-max -translate-x-1/2 px-4">
-        <nav className="flex items-center gap-1.5 rounded-full border border-zinc-800 bg-zinc-950/60 p-1.5 shadow-2xl backdrop-blur-md">
+        <nav className="flex items-center gap-1.5 rounded-full border border-zinc-200 dark:border-zinc-800 bg-zinc-50/60 dark:bg-zinc-950/60 p-1.5 shadow-2xl backdrop-blur-md">
           {navItems.map((item) => {
             const isActive =
               pathname === item.href ||
@@ -33,13 +34,13 @@ export default function NavPill() {
                 key={item.href}
                 href={item.href}
                 className={`relative flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-medium transition-colors duration-200 ${
-                  isActive ? "text-zinc-50" : "text-zinc-400 hover:text-zinc-200"
+                  isActive ? "text-zinc-950 dark:text-zinc-50" : "text-zinc-600 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200"
                 }`}
               >
                 {isActive && (
                   <motion.span
                     layoutId="active-nav-pill"
-                    className="absolute inset-0 -z-10 rounded-full bg-zinc-900 border border-zinc-800"
+                    className="absolute inset-0 -z-10 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800"
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}
@@ -49,19 +50,23 @@ export default function NavPill() {
             );
           })}
 
-          <div className="h-4 w-[1px] bg-zinc-800 mx-1" />
+          <div className="h-4 w-[1px] bg-zinc-200 dark:bg-zinc-800 mx-1" />
 
           {/* Cmd K Command Menu Button */}
           <button
             onClick={() => setIsPaletteOpen(true)}
-            className="flex items-center gap-1.5 rounded-full px-2.5 py-1.5 text-xs font-medium text-zinc-400 hover:text-zinc-50 hover:bg-zinc-900 border border-transparent hover:border-zinc-800 transition-all duration-200"
+            className="flex items-center gap-1.5 rounded-full px-2.5 py-1.5 text-xs font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-zinc-50 hover:bg-zinc-100 dark:hover:bg-zinc-900 border border-transparent hover:border-zinc-200 dark:hover:border-zinc-800 transition-all duration-200"
             title="Open Command Palette (Cmd+K)"
           >
             <Terminal className="h-3.5 w-3.5" />
-            <kbd className="hidden md:inline-flex h-4 select-none items-center gap-0.5 rounded border border-zinc-800 bg-zinc-900 px-1 text-[9px] font-mono text-zinc-500 font-medium">
+            <kbd className="hidden md:inline-flex h-4 select-none items-center gap-0.5 rounded border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 px-1 text-[9px] font-mono text-zinc-500 font-medium">
               <span>⌘</span>K
             </kbd>
           </button>
+
+          <div className="h-4 w-[1px] bg-zinc-200 dark:bg-zinc-800 mx-1" />
+
+          <ThemeToggle />
         </nav>
       </header>
 

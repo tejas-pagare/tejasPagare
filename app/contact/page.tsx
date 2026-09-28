@@ -33,11 +33,11 @@ export default function ContactPage() {
   return (
     <div className="mx-auto max-w-[1024px] px-4 md:px-8 py-12 lg:py-24 flex flex-col gap-12">
       {/* Header Section */}
-      <ScrollReveal className="flex flex-col gap-3 max-w-2xl border-b border-zinc-900 pb-8">
-        <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-zinc-50">
+      <ScrollReveal className="flex flex-col gap-3 max-w-2xl border-b border-zinc-100 dark:border-zinc-900 pb-8">
+        <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-zinc-950 dark:text-zinc-50">
           Contact
         </h1>
-        <p className="text-base md:text-lg leading-relaxed text-zinc-400">
+        <p className="text-base md:text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
           Let&rsquo;s connect. Drop me a line below and I&rsquo;ll get back to you as soon as possible.
         </p>
       </ScrollReveal>
@@ -50,20 +50,20 @@ export default function ContactPage() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.3 }}
-              className="flex flex-col items-center text-center p-8 rounded-md border border-zinc-800 bg-zinc-900/10"
+              className="flex flex-col items-center text-center p-8 rounded-md border border-zinc-200 dark:border-zinc-800 bg-zinc-100/10 dark:bg-zinc-900/10"
             >
               <div className="h-12 w-12 rounded-full bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center mb-4 text-indigo-400">
                 <CheckCircle2 className="h-6 w-6" />
               </div>
-              <h3 className="text-lg font-semibold text-zinc-50 mb-2">
+              <h3 className="text-lg font-semibold text-zinc-950 dark:text-zinc-50 mb-2">
                 Message Sent Successfully
               </h3>
-              <p className="text-sm text-zinc-400 mb-6 max-w-sm">
+              <p className="text-sm text-zinc-600 dark:text-zinc-400 mb-6 max-w-sm">
                 Thank you for reaching out! I appreciate your message and will get back to you shortly.
               </p>
               <button
                 onClick={() => setStatus("idle")}
-                className="inline-flex items-center gap-1.5 text-xs font-semibold text-zinc-400 hover:text-zinc-50 transition-colors"
+                className="inline-flex items-center gap-1.5 text-xs font-semibold text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-zinc-50 transition-colors"
               >
                 <span>Send another message</span>
                 <ArrowRight className="h-3.5 w-3.5" />
@@ -95,7 +95,7 @@ export default function ContactPage() {
                   placeholder="John Doe"
                   whileFocus={{ scale: 1.01 }}
                   transition={{ duration: 0.15 }}
-                  className="w-full bg-zinc-950/40 border border-zinc-800 rounded-md px-4 py-3 text-sm text-zinc-50 placeholder-zinc-650 focus:border-zinc-400 outline-none transition-colors duration-200"
+                  className="w-full bg-zinc-50/40 dark:bg-zinc-950/40 border border-zinc-200 dark:border-zinc-800 rounded-md px-4 py-3 text-sm text-zinc-950 dark:text-zinc-50 placeholder-zinc-400 dark:placeholder-zinc-600 focus:border-zinc-600 dark:focus:border-zinc-400 outline-none transition-colors duration-200"
                 />
               </div>
 
@@ -117,7 +117,7 @@ export default function ContactPage() {
                   placeholder="john@example.com"
                   whileFocus={{ scale: 1.01 }}
                   transition={{ duration: 0.15 }}
-                  className="w-full bg-zinc-950/40 border border-zinc-800 rounded-md px-4 py-3 text-sm text-zinc-50 placeholder-zinc-650 focus:border-zinc-400 outline-none transition-colors duration-200"
+                  className="w-full bg-zinc-50/40 dark:bg-zinc-950/40 border border-zinc-200 dark:border-zinc-800 rounded-md px-4 py-3 text-sm text-zinc-950 dark:text-zinc-50 placeholder-zinc-400 dark:placeholder-zinc-600 focus:border-zinc-600 dark:focus:border-zinc-400 outline-none transition-colors duration-200"
                 />
               </div>
 
@@ -139,7 +139,7 @@ export default function ContactPage() {
                   placeholder="Describe your project, ideas, or opportunity..."
                   whileFocus={{ scale: 1.01 }}
                   transition={{ duration: 0.15 }}
-                  className="w-full bg-zinc-950/40 border border-zinc-800 rounded-md px-4 py-3 text-sm text-zinc-50 placeholder-zinc-650 focus:border-zinc-400 outline-none resize-none transition-colors duration-200"
+                  className="w-full bg-zinc-50/40 dark:bg-zinc-950/40 border border-zinc-200 dark:border-zinc-800 rounded-md px-4 py-3 text-sm text-zinc-950 dark:text-zinc-50 placeholder-zinc-400 dark:placeholder-zinc-600 focus:border-zinc-600 dark:focus:border-zinc-400 outline-none resize-none transition-colors duration-200"
                 />
               </div>
 
@@ -149,7 +149,7 @@ export default function ContactPage() {
                 disabled={status === "loading" || !name || !email || !message}
                 whileHover={status === "loading" ? {} : { scale: 1.02 }}
                 whileTap={status === "loading" ? {} : { scale: 0.98 }}
-                className="inline-flex items-center justify-center gap-2 h-10 w-full rounded-full bg-zinc-50 text-zinc-950 font-medium text-xs hover:bg-zinc-200 disabled:bg-zinc-800 disabled:text-zinc-600 disabled:cursor-not-allowed transition-colors duration-200"
+                className="inline-flex items-center justify-center gap-2 h-10 w-full rounded-full bg-zinc-950 dark:bg-zinc-50 text-zinc-50 dark:text-zinc-950 font-medium text-xs hover:bg-zinc-800 dark:hover:bg-zinc-200 disabled:bg-zinc-200 dark:disabled:bg-zinc-800 disabled:text-zinc-400 dark:disabled:text-zinc-600 disabled:cursor-not-allowed transition-colors duration-200"
               >
                 {status === "loading" ? (
                   <>

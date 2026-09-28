@@ -328,7 +328,7 @@ export default function PortfolioTour() {
           width: tooltipStyle.width,
           transform: tooltipStyle.transform,
         }}
-        className="pointer-events-auto z-[51] rounded-xl border border-zinc-800 bg-zinc-950 p-5 shadow-2xl backdrop-blur-md transition-all duration-300"
+        className="pointer-events-auto z-[51] rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950 p-5 shadow-2xl backdrop-blur-md transition-all duration-300"
       >
         <AnimatePresence mode="wait">
           <motion.div
@@ -339,38 +339,38 @@ export default function PortfolioTour() {
             transition={{ duration: 0.2 }}
             className="flex flex-col gap-2"
           >
-            <h4 className="text-sm font-semibold tracking-tight text-zinc-50">
+            <h4 className="text-sm font-semibold tracking-tight text-zinc-950 dark:text-zinc-50">
               {activeStep.title}
             </h4>
-            <p className="text-zinc-400 text-xs leading-relaxed">
+            <p className="text-zinc-600 dark:text-zinc-400 text-xs leading-relaxed">
               {activeStep.description}
             </p>
           </motion.div>
         </AnimatePresence>
 
         {/* Footer controls */}
-        <div className="flex items-center justify-between mt-5 pt-3 border-t border-zinc-900">
+        <div className="flex items-center justify-between mt-5 pt-3 border-t border-zinc-100 dark:border-zinc-900">
           <span className="text-[10px] font-mono text-zinc-500">
             STEP {currentStep + 1} / {TOUR_STEPS.length}
           </span>
           <div className="flex items-center gap-2">
             <button
               onClick={handleSkip}
-              className="h-8 rounded-lg border border-zinc-850 px-3 text-[11px] font-medium text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900 transition-all duration-200 cursor-pointer"
+              className="h-8 rounded-lg border border-zinc-200 dark:border-zinc-800 px-3 text-[11px] font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-all duration-200 cursor-pointer"
             >
               Skip
             </button>
             {activeStep.path !== "/" && (
               <button
                 onClick={handleSkip}
-                className="h-8 rounded-lg border border-zinc-800 bg-zinc-900 px-3 text-[11px] font-semibold text-zinc-200 hover:text-zinc-50 hover:bg-zinc-850 transition-all duration-200 cursor-pointer"
+                className="h-8 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 px-3 text-[11px] font-semibold text-zinc-800 dark:text-zinc-200 hover:text-zinc-950 dark:hover:text-zinc-50 hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-all duration-200 cursor-pointer"
               >
                 Explore
               </button>
             )}
             <button
               onClick={handleNext}
-              className="h-8 rounded-lg bg-zinc-50 px-3 text-[11px] font-semibold text-zinc-950 hover:bg-zinc-200 transition-colors cursor-pointer"
+              className="h-8 rounded-lg bg-zinc-950 dark:bg-zinc-50 px-3 text-[11px] font-semibold text-zinc-50 dark:text-zinc-950 hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors cursor-pointer"
             >
               {currentStep === TOUR_STEPS.length - 1 ? "Finish" : "Next →"}
             </button>

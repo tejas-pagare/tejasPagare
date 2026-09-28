@@ -66,12 +66,12 @@ export default function ExperienceTimeline() {
   return (
     <div ref={containerRef} className="relative w-full max-w-3xl mx-auto pl-6 md:pl-10">
       {/* Background Track Line */}
-      <div className="absolute left-[7px] md:left-[11px] top-4 bottom-4 w-[2px] bg-zinc-800 rounded-full" />
+      <div className="absolute left-[7px] md:left-[11px] top-4 bottom-4 w-[2px] bg-zinc-200 dark:bg-zinc-800 rounded-full" />
       
       {/* Scroll-Linked Filled Line */}
       <motion.div
         style={{ height: lineHeight }}
-        className="absolute left-[7px] md:left-[11px] top-4 w-[2px] bg-zinc-50 rounded-full origin-top"
+        className="absolute left-[7px] md:left-[11px] top-4 w-[2px] bg-zinc-950 dark:bg-zinc-50 rounded-full origin-top"
       />
 
       <div className="flex flex-col gap-16">
@@ -85,23 +85,23 @@ export default function ExperienceTimeline() {
             className="relative"
           >
             {/* Timeline node dot */}
-            <div className="absolute -left-[24px] md:-left-[34px] top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-zinc-950 border-2 border-zinc-800">
+            <div className="absolute -left-[24px] md:-left-[34px] top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-zinc-50 dark:bg-zinc-950 border-2 border-zinc-200 dark:border-zinc-800">
               <motion.div
                 initial={{ scale: 0 }}
                 whileInView={{ scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ type: "spring", stiffness: 300, damping: 20, delay: idx * 0.15 }}
-                className="h-1.5 w-1.5 rounded-full bg-zinc-50"
+                className="h-1.5 w-1.5 rounded-full bg-zinc-950 dark:bg-zinc-50"
               />
             </div>
 
             {/* Event Header */}
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
               <div>
-                <h3 className="text-xl font-bold tracking-tight text-zinc-50">
+                <h3 className="text-xl font-bold tracking-tight text-zinc-950 dark:text-zinc-50">
                   {event.title}
                 </h3>
-                <span className="text-xs font-mono font-bold tracking-wider text-zinc-400 uppercase">
+                <span className="text-xs font-mono font-bold tracking-wider text-zinc-600 dark:text-zinc-400 uppercase">
                   {event.company}
                 </span>
               </div>
@@ -112,7 +112,7 @@ export default function ExperienceTimeline() {
             </div>
 
             {/* Overview paragraph */}
-            <p className="text-sm md:text-base leading-relaxed text-zinc-400 mb-4 max-w-2xl">
+            <p className="text-sm md:text-base leading-relaxed text-zinc-600 dark:text-zinc-400 mb-4 max-w-2xl">
               {event.overview}
             </p>
 
@@ -120,8 +120,8 @@ export default function ExperienceTimeline() {
             {event.bullets && event.bullets.length > 0 && (
               <ul className="flex flex-col gap-3 mb-6 max-w-2xl">
                 {event.bullets.map((bullet, bIdx) => (
-                  <li key={bIdx} className="flex items-start gap-3 text-sm text-zinc-300 leading-relaxed">
-                    <CheckCircle2 className="h-4.5 w-4.5 text-zinc-400 shrink-0 mt-0.5" />
+                  <li key={bIdx} className="flex items-start gap-3 text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed">
+                    <CheckCircle2 className="h-4.5 w-4.5 text-zinc-600 dark:text-zinc-400 shrink-0 mt-0.5" />
                     <span>{bullet}</span>
                   </li>
                 ))}
@@ -134,7 +134,7 @@ export default function ExperienceTimeline() {
                 {event.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="inline-flex items-center rounded-full bg-zinc-900 border border-zinc-850 px-2.5 py-0.5 text-xs font-medium text-zinc-400"
+                    className="inline-flex items-center rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 px-2.5 py-0.5 text-xs font-medium text-zinc-600 dark:text-zinc-400"
                   >
                     {tag}
                   </span>

@@ -4,6 +4,7 @@ import "./globals.css";
 import Link from "next/link";
 import NavPill from "@/components/nav-pill";
 import PortfolioTour from "@/components/portfolio-tour";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const geistSans = Geist({
   variable: "--font-sans",
@@ -28,49 +29,52 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased dark`}
+      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col bg-zinc-950 text-zinc-50 font-sans selection:bg-zinc-50/10 selection:text-zinc-50 overflow-x-hidden">
-        {/* Floating Navigation Pill */}
-        <NavPill />
+      <body className="min-h-full flex flex-col bg-zinc-50 dark:bg-zinc-950 text-zinc-950 dark:text-zinc-50 font-sans selection:bg-zinc-950/10 dark:selection:bg-zinc-50/10 selection:text-zinc-950 dark:selection:text-zinc-50 overflow-x-hidden">
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
+          {/* Floating Navigation Pill */}
+          <NavPill />
 
-        {/* Interactive Onboarding Tour */}
-        <PortfolioTour />
+          {/* Interactive Onboarding Tour */}
+          <PortfolioTour />
 
-        {/* Main Content Area */}
-        <div className="flex-1 flex flex-col pt-28 overflow-x-hidden">
-          {children}
-        </div>
-
-        {/* Footer */}
-        <footer className="w-full border-t border-zinc-800 bg-zinc-950/20 py-8 px-6 md:px-8 mt-auto">
-          <div className="mx-auto max-w-[1024px] flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-zinc-500 font-medium">
-            <div>
-              © {new Date().getFullYear()} Tejas Pagare. Built with architectural rigor.
-            </div>
-            <div className="flex items-center gap-6">
-              <Link href="/blog" className="hover:text-zinc-300 transition-colors">
-                Blog
-              </Link>
-              <a
-                href="https://github.com/tejas-pagare"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-zinc-300 transition-colors"
-              >
-                GitHub
-              </a>
-              <a
-                href="https://www.linkedin.com/in/tejas-pagare-45671a2a7/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-zinc-300 transition-colors"
-              >
-                LinkedIn
-              </a>
-            </div>
+          {/* Main Content Area */}
+          <div className="flex-1 flex flex-col pt-28 overflow-x-hidden">
+            {children}
           </div>
-        </footer>
+
+          {/* Footer */}
+          <footer className="w-full border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50/20 dark:bg-zinc-950/20 py-8 px-6 md:px-8 mt-auto">
+            <div className="mx-auto max-w-[1024px] flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-zinc-500 font-medium">
+              <div>
+                © {new Date().getFullYear()} Tejas Pagare. Built with architectural rigor.
+              </div>
+              <div className="flex items-center gap-6">
+                <Link href="/blog" className="hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors">
+                  Blog
+                </Link>
+                <a
+                  href="https://github.com/tejas-pagare"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors"
+                >
+                  GitHub
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/tejas-pagare-45671a2a7/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors"
+                >
+                  LinkedIn
+                </a>
+              </div>
+            </div>
+          </footer>
+        </ThemeProvider>
       </body>
     </html>
   );

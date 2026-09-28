@@ -5,7 +5,7 @@ import { Loader2, LogIn } from "lucide-react";
 import { login } from "./actions";
 
 const inputClass =
-  "w-full rounded-md border border-zinc-800 bg-zinc-950/40 px-3.5 py-2.5 text-sm text-zinc-50 placeholder:text-zinc-600 outline-none transition-colors focus:border-zinc-500";
+  "w-full rounded-md border border-zinc-200 dark:border-zinc-800 bg-zinc-50/40 dark:bg-zinc-950/40 px-3.5 py-2.5 text-sm text-zinc-950 dark:text-zinc-50 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 outline-none transition-colors focus:border-zinc-500";
 
 export default function LoginForm() {
   const [state, formAction, pending] = useActionState(login, {});
@@ -13,7 +13,7 @@ export default function LoginForm() {
   return (
     <form
       action={formAction}
-      className="flex flex-col gap-5 rounded-xl border border-zinc-800 bg-zinc-900/20 p-6 backdrop-blur-md"
+      className="flex flex-col gap-5 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-100/20 dark:bg-zinc-900/20 p-6 backdrop-blur-md"
     >
       <div className="flex flex-col gap-2">
         <label htmlFor="email" className="text-[11px] font-mono font-bold uppercase tracking-wider text-zinc-500">
@@ -44,7 +44,7 @@ export default function LoginForm() {
       <button
         type="submit"
         disabled={pending}
-        className="inline-flex h-10 items-center justify-center gap-2 rounded-full bg-zinc-50 text-xs font-medium text-zinc-950 hover:bg-zinc-200 disabled:opacity-60 transition-colors"
+        className="inline-flex h-10 items-center justify-center gap-2 rounded-full bg-zinc-950 dark:bg-zinc-50 text-xs font-medium text-zinc-50 dark:text-zinc-950 hover:bg-zinc-800 dark:hover:bg-zinc-200 disabled:opacity-60 transition-colors"
       >
         {pending ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <LogIn className="h-3.5 w-3.5" />}
         {pending ? "Signing in..." : "Sign in"}

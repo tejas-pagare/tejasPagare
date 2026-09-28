@@ -25,10 +25,10 @@ export default function ProjectsPage() {
     <div className="mx-auto max-w-[1024px] px-4 md:px-8 py-12 lg:py-24 flex flex-col gap-12">
       {/* Header Section */}
       <div id="projects-header" className="flex flex-col gap-3 max-w-2xl">
-        <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-zinc-50">
+        <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-zinc-950 dark:text-zinc-50">
           Projects
         </h1>
-        <p className="text-base md:text-lg leading-relaxed text-zinc-400">
+        <p className="text-base md:text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
           A selection of technical projects focusing on scalable microservices, generative
           AI, and high-performance system architecture.
         </p>

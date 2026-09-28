@@ -19,12 +19,12 @@ export default async function AdminDashboard() {
     <div className="flex flex-col gap-8">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div className="flex flex-col gap-2">
-          <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-zinc-50">Blog</h1>
-          <p className="text-sm text-zinc-400">Write, edit and publish posts.</p>
+          <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-zinc-950 dark:text-zinc-50">Blog</h1>
+          <p className="text-sm text-zinc-600 dark:text-zinc-400">Write, edit and publish posts.</p>
         </div>
         <Link
           href="/admin/posts/new"
-          className="inline-flex h-10 items-center justify-center gap-2 rounded-full bg-zinc-50 px-5 text-xs font-medium text-zinc-950 hover:bg-zinc-200 transition-colors"
+          className="inline-flex h-10 items-center justify-center gap-2 rounded-full bg-zinc-950 dark:bg-zinc-50 px-5 text-xs font-medium text-zinc-50 dark:text-zinc-950 hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors"
         >
           <Plus className="h-3.5 w-3.5" />
           New post
@@ -42,32 +42,32 @@ export default async function AdminDashboard() {
         </div>
       )}
 
-      <div className="grid grid-cols-3 divide-x divide-zinc-800 rounded-xl border border-zinc-800 bg-zinc-900/10">
+      <div className="grid grid-cols-3 divide-x divide-zinc-200 dark:divide-zinc-800 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-100/10 dark:bg-zinc-900/10">
         {stats.map((s) => (
           <div key={s.label} className="flex flex-col gap-1 p-4 md:p-5">
-            <span className="text-2xl md:text-3xl font-bold tracking-tight text-zinc-50">{s.value}</span>
+            <span className="text-2xl md:text-3xl font-bold tracking-tight text-zinc-950 dark:text-zinc-50">{s.value}</span>
             <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-500">{s.label}</span>
           </div>
         ))}
       </div>
 
       {all.length === 0 ? (
-        <div className="flex flex-col items-center gap-3 rounded-xl border border-dashed border-zinc-800 py-16 text-center">
-          <FileText className="h-6 w-6 text-zinc-600" />
-          <p className="text-sm text-zinc-400">No posts yet.</p>
-          <Link href="/admin/posts/new" className="text-xs font-semibold text-zinc-300 hover:text-zinc-50">
+        <div className="flex flex-col items-center gap-3 rounded-xl border border-dashed border-zinc-200 dark:border-zinc-800 py-16 text-center">
+          <FileText className="h-6 w-6 text-zinc-400 dark:text-zinc-600" />
+          <p className="text-sm text-zinc-600 dark:text-zinc-400">No posts yet.</p>
+          <Link href="/admin/posts/new" className="text-xs font-semibold text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-zinc-50">
             Write your first post &rarr;
           </Link>
         </div>
       ) : (
-        <ul className="flex flex-col divide-y divide-zinc-800 rounded-xl border border-zinc-800">
+        <ul className="flex flex-col divide-y divide-zinc-200 dark:divide-zinc-800 rounded-xl border border-zinc-200 dark:border-zinc-800">
           {all.map((post) => (
-            <li key={post.id} className="flex items-center gap-4 px-4 py-3.5 md:px-5 hover:bg-zinc-900/30 transition-colors">
+            <li key={post.id} className="flex items-center gap-4 px-4 py-3.5 md:px-5 hover:bg-zinc-100/30 dark:hover:bg-zinc-900/30 transition-colors">
               <div className="flex min-w-0 flex-1 flex-col gap-1">
                 <div className="flex items-center gap-2">
                   <Link
                     href={`/admin/posts/${post.id}/edit`}
-                    className="truncate text-sm font-medium text-zinc-100 hover:text-white"
+                    className="truncate text-sm font-medium text-zinc-900 dark:text-zinc-100 hover:text-white"
                   >
                     {post.title}
                   </Link>
@@ -75,7 +75,7 @@ export default async function AdminDashboard() {
                     className={
                       post.status === "published"
                         ? "shrink-0 rounded-full border border-indigo-500/20 bg-indigo-500/10 px-2 py-0.5 text-[10px] font-medium text-indigo-400"
-                        : "shrink-0 rounded-full border border-zinc-700 bg-zinc-900 px-2 py-0.5 text-[10px] font-medium text-zinc-400"
+                        : "shrink-0 rounded-full border border-zinc-300 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-900 px-2 py-0.5 text-[10px] font-medium text-zinc-600 dark:text-zinc-400"
                     }
                   >
                     {post.status === "published" ? "Published" : "Draft"}
@@ -89,14 +89,14 @@ export default async function AdminDashboard() {
                 <Link
                   href={`/blog/${post.slug}`}
                   target="_blank"
-                  className="inline-flex h-8 w-8 items-center justify-center rounded-md text-zinc-500 hover:bg-zinc-900 hover:text-zinc-100 transition-colors"
+                  className="inline-flex h-8 w-8 items-center justify-center rounded-md text-zinc-500 hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
                   title={post.status === "published" ? "View post" : "Preview draft"}
                 >
                   <ExternalLink className="h-3.5 w-3.5" />
                 </Link>
                 <Link
                   href={`/admin/posts/${post.id}/edit`}
-                  className="inline-flex h-8 w-8 items-center justify-center rounded-md text-zinc-500 hover:bg-zinc-900 hover:text-zinc-100 transition-colors"
+                  className="inline-flex h-8 w-8 items-center justify-center rounded-md text-zinc-500 hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
                   title="Edit post"
                 >
                   <PenSquare className="h-3.5 w-3.5" />

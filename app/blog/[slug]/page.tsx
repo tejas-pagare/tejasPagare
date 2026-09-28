@@ -54,7 +54,7 @@ export default async function BlogPostPage({ params }: PageProps) {
       <div className="flex items-center justify-between gap-4">
         <Link
           href="/blog"
-          className="group inline-flex items-center gap-2 text-xs font-semibold text-zinc-400 hover:text-zinc-50 transition-colors"
+          className="group inline-flex items-center gap-2 text-xs font-semibold text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-zinc-50 transition-colors"
         >
           <ArrowLeft className="h-4 w-4 transition-transform duration-200 group-hover:-translate-x-0.5" />
           <span>All posts</span>
@@ -62,7 +62,7 @@ export default async function BlogPostPage({ params }: PageProps) {
         {isAdmin && (
           <Link
             href={`/admin/posts/${post.id}/edit`}
-            className="inline-flex items-center gap-1.5 rounded-full border border-zinc-800 px-3 py-1 text-xs font-medium text-zinc-400 hover:bg-zinc-900 hover:text-zinc-50 transition-colors"
+            className="inline-flex items-center gap-1.5 rounded-full border border-zinc-200 dark:border-zinc-800 px-3 py-1 text-xs font-medium text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-zinc-950 dark:hover:text-zinc-50 transition-colors"
           >
             <PenSquare className="h-3.5 w-3.5" />
             Edit
@@ -79,20 +79,20 @@ export default async function BlogPostPage({ params }: PageProps) {
       <header className="flex flex-col gap-5">
         <div className="flex flex-wrap items-center gap-2 text-[11px] font-mono uppercase tracking-wider text-zinc-500">
           <time dateTime={post.publishedAt}>{formatDate(post.publishedAt ?? post.updatedAt)}</time>
-          <span className="text-zinc-700">·</span>
+          <span className="text-zinc-300 dark:text-zinc-700">·</span>
           <span>{readingTime(post.content)} min read</span>
         </div>
-        <h1 className="text-3xl md:text-5xl font-bold leading-[1.1] tracking-[-0.02em] text-zinc-50">
+        <h1 className="text-3xl md:text-5xl font-bold leading-[1.1] tracking-[-0.02em] text-zinc-950 dark:text-zinc-50">
           {post.title}
         </h1>
-        {post.excerpt && <p className="text-base md:text-lg leading-relaxed text-zinc-400">{post.excerpt}</p>}
+        {post.excerpt && <p className="text-base md:text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">{post.excerpt}</p>}
         {post.tags.length > 0 && (
           <div className="flex flex-wrap gap-1.5">
             {post.tags.map((tag) => (
               <Link
                 key={tag}
                 href={`/blog?tag=${encodeURIComponent(tag)}`}
-                className="rounded-full border border-zinc-800/60 bg-zinc-900 px-2.5 py-0.5 text-[11px] font-medium text-zinc-400 hover:text-zinc-200 transition-colors"
+                className="rounded-full border border-zinc-200/60 dark:border-zinc-800/60 bg-zinc-100 dark:bg-zinc-900 px-2.5 py-0.5 text-[11px] font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors"
               >
                 {tag}
               </Link>
@@ -102,7 +102,7 @@ export default async function BlogPostPage({ params }: PageProps) {
       </header>
 
       {post.coverImage && (
-        <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900/30">
+        <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-100/30 dark:bg-zinc-900/30">
           <Image
             src={post.coverImage}
             alt=""
@@ -115,24 +115,24 @@ export default async function BlogPostPage({ params }: PageProps) {
         </div>
       )}
 
-      <Markdown content={post.content} className="border-t border-zinc-900 pt-10" />
+      <Markdown content={post.content} className="border-t border-zinc-100 dark:border-zinc-900 pt-10" />
 
       {(newer || older) && post.status === "published" && (
-        <nav className="mt-6 grid grid-cols-1 gap-4 border-t border-zinc-800 pt-8 sm:grid-cols-2">
+        <nav className="mt-6 grid grid-cols-1 gap-4 border-t border-zinc-200 dark:border-zinc-800 pt-8 sm:grid-cols-2">
           {older ? (
-            <Link href={`/blog/${older.slug}`} className="group flex flex-col gap-1.5 rounded-xl border border-zinc-800 p-4 hover:border-zinc-700 hover:bg-zinc-900/30 transition-colors">
+            <Link href={`/blog/${older.slug}`} className="group flex flex-col gap-1.5 rounded-xl border border-zinc-200 dark:border-zinc-800 p-4 hover:border-zinc-300 dark:hover:border-zinc-700 hover:bg-zinc-100/30 dark:hover:bg-zinc-900/30 transition-colors">
               <span className="inline-flex items-center gap-1 text-[10px] font-mono font-bold uppercase tracking-wider text-zinc-500">
                 <ArrowLeft className="h-3 w-3" /> Previous
               </span>
-              <span className="text-sm font-semibold text-zinc-200 group-hover:text-zinc-50">{older.title}</span>
+              <span className="text-sm font-semibold text-zinc-800 dark:text-zinc-200 group-hover:text-zinc-950 dark:group-hover:text-zinc-50">{older.title}</span>
             </Link>
           ) : <span />}
           {newer && (
-            <Link href={`/blog/${newer.slug}`} className="group flex flex-col items-end gap-1.5 rounded-xl border border-zinc-800 p-4 text-right hover:border-zinc-700 hover:bg-zinc-900/30 transition-colors">
+            <Link href={`/blog/${newer.slug}`} className="group flex flex-col items-end gap-1.5 rounded-xl border border-zinc-200 dark:border-zinc-800 p-4 text-right hover:border-zinc-300 dark:hover:border-zinc-700 hover:bg-zinc-100/30 dark:hover:bg-zinc-900/30 transition-colors">
               <span className="inline-flex items-center gap-1 text-[10px] font-mono font-bold uppercase tracking-wider text-zinc-500">
                 Next <ArrowRight className="h-3 w-3" />
               </span>
-              <span className="text-sm font-semibold text-zinc-200 group-hover:text-zinc-50">{newer.title}</span>
+              <span className="text-sm font-semibold text-zinc-800 dark:text-zinc-200 group-hover:text-zinc-950 dark:group-hover:text-zinc-50">{newer.title}</span>
             </Link>
           )}
         </nav>

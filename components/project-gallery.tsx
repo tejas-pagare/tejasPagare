@@ -18,7 +18,7 @@ export default function ProjectGallery({ images = [], title = "Project Screensho
   // Handle empty state gracefully
   if (!images || images.length === 0) {
     return (
-      <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl border border-zinc-850 bg-zinc-900/20 flex items-center justify-center text-zinc-500 font-mono text-sm">
+      <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-100/20 dark:bg-zinc-900/20 flex items-center justify-center text-zinc-500 font-mono text-sm">
         No images available
       </div>
     );
@@ -66,7 +66,7 @@ export default function ProjectGallery({ images = [], title = "Project Screensho
   return (
     <div className="flex flex-col gap-4 w-full">
       {/* Main Viewport */}
-      <div className="group relative aspect-[16/9] w-full overflow-hidden rounded-xl border border-zinc-850 bg-zinc-900/20">
+      <div className="group relative aspect-[16/9] w-full overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-100/20 dark:bg-zinc-900/20">
         <AnimatePresence initial={false} mode="wait" custom={direction}>
           <motion.div
             key={currentIndex}
@@ -104,7 +104,7 @@ export default function ProjectGallery({ images = [], title = "Project Screensho
               onClick={handlePrev}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="absolute left-4 top-1/2 -translate-y-1/2 flex h-9 w-9 items-center justify-center rounded-full border border-zinc-800 bg-zinc-950/60 text-zinc-400 backdrop-blur-md transition-colors hover:bg-zinc-900 hover:text-zinc-50 focus:outline-none focus:ring-1 focus:ring-zinc-400 group-hover:opacity-100 opacity-0 group-hover:translate-x-0 -translate-x-2 transition-all duration-300 md:h-10 md:w-10 cursor-pointer"
+              className="absolute left-4 top-1/2 -translate-y-1/2 flex h-9 w-9 items-center justify-center rounded-full border border-zinc-200 dark:border-zinc-800 bg-zinc-50/60 dark:bg-zinc-950/60 text-zinc-600 dark:text-zinc-400 backdrop-blur-md transition-colors hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-zinc-950 dark:hover:text-zinc-50 focus:outline-none focus:ring-1 focus:ring-zinc-600 dark:focus:ring-zinc-400 group-hover:opacity-100 opacity-0 group-hover:translate-x-0 -translate-x-2 transition-all duration-300 md:h-10 md:w-10 cursor-pointer"
               aria-label="Previous image"
             >
               <ChevronLeft className="h-5 w-5" />
@@ -116,7 +116,7 @@ export default function ProjectGallery({ images = [], title = "Project Screensho
               onClick={handleNext}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="absolute right-4 top-1/2 -translate-y-1/2 flex h-9 w-9 items-center justify-center rounded-full border border-zinc-800 bg-zinc-950/60 text-zinc-400 backdrop-blur-md transition-colors hover:bg-zinc-900 hover:text-zinc-50 focus:outline-none focus:ring-1 focus:ring-zinc-400 group-hover:opacity-100 opacity-0 group-hover:translate-x-0 translate-x-2 transition-all duration-300 md:h-10 md:w-10 cursor-pointer"
+              className="absolute right-4 top-1/2 -translate-y-1/2 flex h-9 w-9 items-center justify-center rounded-full border border-zinc-200 dark:border-zinc-800 bg-zinc-50/60 dark:bg-zinc-950/60 text-zinc-600 dark:text-zinc-400 backdrop-blur-md transition-colors hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-zinc-950 dark:hover:text-zinc-50 focus:outline-none focus:ring-1 focus:ring-zinc-600 dark:focus:ring-zinc-400 group-hover:opacity-100 opacity-0 group-hover:translate-x-0 translate-x-2 transition-all duration-300 md:h-10 md:w-10 cursor-pointer"
               aria-label="Next image"
             >
               <ChevronRight className="h-5 w-5" />
@@ -125,7 +125,7 @@ export default function ProjectGallery({ images = [], title = "Project Screensho
         )}
 
         {/* Image Counter indicator */}
-        <div className="absolute bottom-3 right-4 rounded-full bg-zinc-950/60 px-2.5 py-0.5 text-[10px] font-mono text-zinc-400 backdrop-blur-sm border border-zinc-850">
+        <div className="absolute bottom-3 right-4 rounded-full bg-zinc-50/60 dark:bg-zinc-950/60 px-2.5 py-0.5 text-[10px] font-mono text-zinc-600 dark:text-zinc-400 backdrop-blur-sm border border-zinc-200 dark:border-zinc-800">
           {currentIndex + 1} / {images.length}
         </div>
       </div>
@@ -148,7 +148,7 @@ export default function ProjectGallery({ images = [], title = "Project Screensho
                 className={cn(
                   "relative w-20 sm:w-28 md:w-32 aspect-[16/10] shrink-0 overflow-hidden rounded-lg cursor-pointer transition-all duration-300 focus:outline-none",
                   isActive
-                    ? "ring-1 ring-zinc-400 opacity-100 grayscale-0"
+                    ? "ring-1 ring-zinc-600 dark:ring-zinc-400 opacity-100 grayscale-0"
                     : "opacity-50 grayscale hover:grayscale-0 hover:opacity-85"
                 )}
                 aria-label={`Go to slide ${idx + 1}`}

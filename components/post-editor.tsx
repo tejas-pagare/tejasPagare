@@ -49,7 +49,7 @@ interface PostEditorProps {
 }
 
 const inputClass =
-  "w-full rounded-md border border-zinc-800 bg-zinc-950/40 px-3.5 py-2.5 text-sm text-zinc-50 placeholder:text-zinc-600 outline-none transition-colors focus:border-zinc-500 aria-invalid:border-red-500/60";
+  "w-full rounded-md border border-zinc-200 dark:border-zinc-800 bg-zinc-50/40 dark:bg-zinc-950/40 px-3.5 py-2.5 text-sm text-zinc-950 dark:text-zinc-50 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 outline-none transition-colors focus:border-zinc-500 aria-invalid:border-red-500/60";
 
 const labelClass = "text-[11px] font-mono font-bold uppercase tracking-wider text-zinc-500";
 
@@ -164,10 +164,10 @@ export default function PostEditor({ action, post, uploadsEnabled }: PostEditorP
       className="flex flex-col gap-8"
     >
       {/* Top bar */}
-      <div className="sticky top-24 z-30 -mx-4 flex items-center justify-between gap-3 border-y border-zinc-800 bg-zinc-950/70 px-4 py-3 backdrop-blur-md md:mx-0 md:rounded-xl md:border">
+      <div className="sticky top-24 z-30 -mx-4 flex items-center justify-between gap-3 border-y border-zinc-200 dark:border-zinc-800 bg-zinc-50/70 dark:bg-zinc-950/70 px-4 py-3 backdrop-blur-md md:mx-0 md:rounded-xl md:border">
         <Link
           href="/admin"
-          className="group inline-flex items-center gap-1.5 text-xs font-semibold text-zinc-400 hover:text-zinc-50 transition-colors"
+          className="group inline-flex items-center gap-1.5 text-xs font-semibold text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-zinc-50 transition-colors"
         >
           <ArrowLeft className="h-3.5 w-3.5 transition-transform group-hover:-translate-x-0.5" />
           <span className="hidden sm:inline">All posts</span>
@@ -183,7 +183,7 @@ export default function PostEditor({ action, post, uploadsEnabled }: PostEditorP
             value="draft"
             data-intent="draft"
             disabled={pending}
-            className="inline-flex h-8 items-center gap-1.5 rounded-full border border-zinc-800 px-3.5 text-xs font-medium text-zinc-300 hover:bg-zinc-900 hover:text-zinc-50 disabled:opacity-50 transition-colors"
+            className="inline-flex h-8 items-center gap-1.5 rounded-full border border-zinc-200 dark:border-zinc-800 px-3.5 text-xs font-medium text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-zinc-950 dark:hover:text-zinc-50 disabled:opacity-50 transition-colors"
           >
             <Save className="h-3.5 w-3.5" />
             {post?.status === "published" ? "Unpublish" : "Save draft"}
@@ -194,7 +194,7 @@ export default function PostEditor({ action, post, uploadsEnabled }: PostEditorP
             value="published"
             data-intent="publish"
             disabled={pending}
-            className="inline-flex h-8 items-center gap-1.5 rounded-full bg-zinc-50 px-3.5 text-xs font-medium text-zinc-950 hover:bg-zinc-200 disabled:opacity-50 transition-colors"
+            className="inline-flex h-8 items-center gap-1.5 rounded-full bg-zinc-950 dark:bg-zinc-50 px-3.5 text-xs font-medium text-zinc-50 dark:text-zinc-950 hover:bg-zinc-800 dark:hover:bg-zinc-200 disabled:opacity-50 transition-colors"
           >
             {pending ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <Send className="h-3.5 w-3.5" />}
             {post?.status === "published" ? "Update" : "Publish"}
@@ -220,7 +220,7 @@ export default function PostEditor({ action, post, uploadsEnabled }: PostEditorP
           placeholder="Post title"
           aria-invalid={!!errors.title}
           aria-label="Title"
-          className="w-full bg-transparent text-3xl md:text-5xl font-bold tracking-tight text-zinc-50 placeholder:text-zinc-700 outline-none"
+          className="w-full bg-transparent text-3xl md:text-5xl font-bold tracking-tight text-zinc-950 dark:text-zinc-50 placeholder:text-zinc-300 dark:placeholder:text-zinc-700 outline-none"
         />
         {errors.title && <p className="text-xs text-red-400">{errors.title}</p>}
       </div>
@@ -229,8 +229,8 @@ export default function PostEditor({ action, post, uploadsEnabled }: PostEditorP
       <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
         <div className="flex flex-col gap-2">
           <label htmlFor="slug" className={labelClass}>Slug</label>
-          <div className="flex items-center rounded-md border border-zinc-800 bg-zinc-950/40 focus-within:border-zinc-500 transition-colors">
-            <span className="pl-3.5 text-sm text-zinc-600 font-mono">/blog/</span>
+          <div className="flex items-center rounded-md border border-zinc-200 dark:border-zinc-800 bg-zinc-50/40 dark:bg-zinc-950/40 focus-within:border-zinc-500 transition-colors">
+            <span className="pl-3.5 text-sm text-zinc-400 dark:text-zinc-600 font-mono">/blog/</span>
             <input
               id="slug"
               name="slug"
@@ -241,7 +241,7 @@ export default function PostEditor({ action, post, uploadsEnabled }: PostEditorP
               }}
               aria-invalid={!!errors.slug}
               placeholder="my-post"
-              className="w-full bg-transparent py-2.5 pr-3.5 text-sm font-mono text-zinc-50 placeholder:text-zinc-600 outline-none"
+              className="w-full bg-transparent py-2.5 pr-3.5 text-sm font-mono text-zinc-950 dark:text-zinc-50 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 outline-none"
             />
           </div>
           {errors.slug && <p className="text-xs text-red-400">{errors.slug}</p>}
@@ -294,7 +294,7 @@ export default function PostEditor({ action, post, uploadsEnabled }: PostEditorP
       <div className="flex flex-col gap-2">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <span className={labelClass}>Content (Markdown)</span>
-          <div className="flex items-center gap-0.5 rounded-full border border-zinc-800 bg-zinc-950/40 p-0.5">
+          <div className="flex items-center gap-0.5 rounded-full border border-zinc-200 dark:border-zinc-800 bg-zinc-50/40 dark:bg-zinc-950/40 p-0.5">
             {([
               { id: "write", icon: PenLine, label: "Write" },
               { id: "split", icon: Columns2, label: "Split" },
@@ -307,7 +307,7 @@ export default function PostEditor({ action, post, uploadsEnabled }: PostEditorP
                 className={cn(
                   "inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium transition-colors",
                   m.id === "split" && "hidden lg:inline-flex",
-                  mode === m.id ? "bg-zinc-800 text-zinc-50" : "text-zinc-400 hover:text-zinc-200"
+                  mode === m.id ? "bg-zinc-200 dark:bg-zinc-800 text-zinc-950 dark:text-zinc-50" : "text-zinc-600 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200"
                 )}
               >
                 <m.icon className="h-3.5 w-3.5" />
@@ -317,9 +317,9 @@ export default function PostEditor({ action, post, uploadsEnabled }: PostEditorP
           </div>
         </div>
 
-        <div className="overflow-hidden rounded-xl border border-zinc-800 bg-zinc-950/40 focus-within:border-zinc-600 transition-colors">
+        <div className="overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/40 dark:bg-zinc-950/40 focus-within:border-zinc-400 dark:focus-within:border-zinc-600 transition-colors">
           {mode !== "preview" && (
-            <div className="flex items-center gap-0.5 border-b border-zinc-800 px-2 py-1.5">
+            <div className="flex items-center gap-0.5 border-b border-zinc-200 dark:border-zinc-800 px-2 py-1.5">
               {TOOLS.map((t) => (
                 <button
                   key={t.label}
@@ -327,7 +327,7 @@ export default function PostEditor({ action, post, uploadsEnabled }: PostEditorP
                   onClick={() => applyTool(t.id)}
                   title={t.label}
                   aria-label={t.label}
-                  className="inline-flex h-7 w-7 items-center justify-center rounded-md text-zinc-500 hover:bg-zinc-900 hover:text-zinc-100 transition-colors"
+                  className="inline-flex h-7 w-7 items-center justify-center rounded-md text-zinc-500 hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
                 >
                   <t.icon className="h-3.5 w-3.5" />
                 </button>
@@ -335,7 +335,7 @@ export default function PostEditor({ action, post, uploadsEnabled }: PostEditorP
             </div>
           )}
 
-          <div className={cn("grid", mode === "split" && "lg:grid-cols-2 lg:divide-x divide-zinc-800")}>
+          <div className={cn("grid", mode === "split" && "lg:grid-cols-2 lg:divide-x divide-zinc-200 dark:divide-zinc-800")}>
             <textarea
               ref={textareaRef}
               name="content"
@@ -360,7 +360,7 @@ export default function PostEditor({ action, post, uploadsEnabled }: PostEditorP
               aria-label="Content"
               placeholder={"# Start writing...\n\nMarkdown is supported: **bold**, _italic_, `code`, lists, tables and fenced code blocks."}
               className={cn(
-                "min-h-[480px] w-full resize-y bg-transparent p-5 font-mono text-sm leading-relaxed text-zinc-200 placeholder:text-zinc-700 outline-none",
+                "min-h-[480px] w-full resize-y bg-transparent p-5 font-mono text-sm leading-relaxed text-zinc-800 dark:text-zinc-200 placeholder:text-zinc-300 dark:placeholder:text-zinc-700 outline-none",
                 mode === "preview" && "hidden"
               )}
             />
@@ -369,7 +369,7 @@ export default function PostEditor({ action, post, uploadsEnabled }: PostEditorP
                 {content.trim() ? (
                   <Markdown content={content} />
                 ) : (
-                  <p className="text-sm text-zinc-600">Nothing to preview yet.</p>
+                  <p className="text-sm text-zinc-400 dark:text-zinc-600">Nothing to preview yet.</p>
                 )}
               </div>
             )}
@@ -388,8 +388,8 @@ export default function PostEditor({ action, post, uploadsEnabled }: PostEditorP
         />
         {errors.content && !content.trim() && <p className="text-xs text-red-400">{errors.content}</p>}
         {uploadError && <p className="text-xs text-red-400">{uploadError}</p>}
-        <p className="text-[11px] text-zinc-600">
-          Tip: press <kbd className="rounded border border-zinc-800 px-1 font-mono">⌘S</kbd> to save
+        <p className="text-[11px] text-zinc-400 dark:text-zinc-600">
+          Tip: press <kbd className="rounded border border-zinc-200 dark:border-zinc-800 px-1 font-mono">⌘S</kbd> to save
           {uploadsEnabled && " · paste or drop images into the editor to upload them"}.
         </p>
       </div>

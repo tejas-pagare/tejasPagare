@@ -32,10 +32,10 @@ export default function ProjectCard({
     <motion.div
       whileHover={{ y: -2 }}
       transition={{ duration: 0.2, ease: "easeOut" }}
-      className="group relative flex flex-col overflow-hidden rounded-md border border-zinc-800 bg-zinc-900/30 hover:border-zinc-700 hover:bg-zinc-900/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.05)] transition-colors duration-300"
+      className="group relative flex flex-col overflow-hidden rounded-md border border-zinc-200 dark:border-zinc-800 bg-zinc-100/30 dark:bg-zinc-900/30 hover:border-zinc-300 dark:hover:border-zinc-700 hover:bg-zinc-100/50 dark:hover:bg-zinc-900/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.05)] transition-colors duration-300"
     >
       {/* Thumbnail */}
-      <div className="relative aspect-video w-full overflow-hidden border-b border-zinc-800">
+      <div className="relative aspect-video w-full overflow-hidden border-b border-zinc-200 dark:border-zinc-800">
         <Image
           src={thumbUrl}
           alt={title}
@@ -52,7 +52,7 @@ export default function ProjectCard({
         {/* Title and Badge */}
         <div className="flex items-start justify-between gap-4 mb-2">
           <div className="flex items-center gap-2">
-            <h3 className="text-lg font-semibold tracking-tight text-zinc-50 group-hover:text-white transition-colors duration-200">
+            <h3 className="text-lg font-semibold tracking-tight text-zinc-950 dark:text-zinc-50 group-hover:text-white transition-colors duration-200">
               {title}
             </h3>
             {badge && (
@@ -63,7 +63,7 @@ export default function ProjectCard({
           </div>
           <Link
             href={`/projects/${slug}`}
-            className="rounded-full p-1 text-zinc-400 hover:bg-zinc-800 hover:text-zinc-50 transition-colors duration-200"
+            className="rounded-full p-1 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-800 hover:text-zinc-950 dark:hover:text-zinc-50 transition-colors duration-200"
             title="Read case study"
           >
             <ArrowUpRight className="h-4 w-4" />
@@ -78,7 +78,7 @@ export default function ProjectCard({
         )}
 
         {/* Short Description */}
-        <p className="text-sm leading-relaxed text-zinc-400 mb-6 line-clamp-2">
+        <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 mb-6 line-clamp-2">
           {shortDescription}
         </p>
 
@@ -87,7 +87,7 @@ export default function ProjectCard({
           {techStack.map((tech) => (
             <span
               key={tech}
-              className="inline-flex items-center rounded-full bg-zinc-900 border border-zinc-800/60 px-2.5 py-0.5 text-xs font-medium text-zinc-400"
+              className="inline-flex items-center rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200/60 dark:border-zinc-800/60 px-2.5 py-0.5 text-xs font-medium text-zinc-600 dark:text-zinc-400"
             >
               {tech}
             </span>

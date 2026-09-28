@@ -21,7 +21,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
         <form action={logout}>
           <button
             type="submit"
-            className="inline-flex items-center gap-1.5 rounded-full border border-zinc-800 px-3 py-1.5 font-medium text-zinc-400 hover:bg-zinc-900 hover:text-zinc-50 transition-colors"
+            className="inline-flex items-center gap-1.5 rounded-full border border-zinc-200 dark:border-zinc-800 px-3 py-1.5 font-medium text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-zinc-950 dark:hover:text-zinc-50 transition-colors"
           >
             <LogOut className="h-3.5 w-3.5" />
             Sign out

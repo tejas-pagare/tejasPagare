@@ -82,22 +82,22 @@ export default function CommandPalette({ isOpen, setIsOpen }: CommandPaletteProp
             exit={{ opacity: 0, scale: 0.95, y: -10 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
             ref={containerRef}
-            className="w-full max-w-xl overflow-hidden rounded-xl border border-zinc-800 bg-zinc-950/90 text-zinc-50 shadow-2xl backdrop-blur-md"
+            className="w-full max-w-xl overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/90 dark:bg-zinc-950/90 text-zinc-950 dark:text-zinc-50 shadow-2xl backdrop-blur-md"
           >
             {/* Search Input */}
-            <div className="flex items-center border-b border-zinc-800 px-4 py-3">
-              <Search className="mr-3 h-5 w-5 text-zinc-400 shrink-0" />
+            <div className="flex items-center border-b border-zinc-200 dark:border-zinc-800 px-4 py-3">
+              <Search className="mr-3 h-5 w-5 text-zinc-600 dark:text-zinc-400 shrink-0" />
               <input
                 ref={inputRef}
                 type="text"
                 placeholder="Search pages, projects, tech stacks..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="w-full bg-transparent text-sm text-zinc-100 placeholder-zinc-500 outline-none"
+                className="w-full bg-transparent text-sm text-zinc-900 dark:text-zinc-100 placeholder-zinc-500 outline-none"
               />
               <button
                 onClick={() => setIsOpen(false)}
-                className="ml-2 rounded border border-zinc-800 px-1.5 py-0.5 text-[10px] font-medium text-zinc-400 hover:border-zinc-700"
+                className="ml-2 rounded border border-zinc-200 dark:border-zinc-800 px-1.5 py-0.5 text-[10px] font-medium text-zinc-600 dark:text-zinc-400 hover:border-zinc-300 dark:hover:border-zinc-700"
               >
                 ESC
               </button>
@@ -114,13 +114,13 @@ export default function CommandPalette({ isOpen, setIsOpen }: CommandPaletteProp
                     <button
                       key={page.path}
                       onClick={() => navigateTo(page.path)}
-                      className="group flex w-full items-center justify-between rounded-lg px-3 py-2 text-sm text-zinc-300 hover:bg-zinc-900 hover:text-zinc-50 transition-colors"
+                      className="group flex w-full items-center justify-between rounded-lg px-3 py-2 text-sm text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-zinc-950 dark:hover:text-zinc-50 transition-colors"
                     >
                       <div className="flex items-center gap-3">
-                        <page.icon className="h-4 w-4 text-zinc-400 group-hover:text-zinc-50" />
+                        <page.icon className="h-4 w-4 text-zinc-600 dark:text-zinc-400 group-hover:text-zinc-950 dark:group-hover:text-zinc-50" />
                         <span>{page.name}</span>
                       </div>
-                      <ArrowRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 text-zinc-400 transition-opacity" />
+                      <ArrowRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 text-zinc-600 dark:text-zinc-400 transition-opacity" />
                     </button>
                   ))}
                 </div>
@@ -135,17 +135,17 @@ export default function CommandPalette({ isOpen, setIsOpen }: CommandPaletteProp
                     <button
                       key={project.slug}
                       onClick={() => navigateTo(`/projects/${project.slug}`)}
-                      className="group flex w-full items-start justify-between rounded-lg px-3 py-2 text-left text-sm text-zinc-300 hover:bg-zinc-900 hover:text-zinc-50 transition-colors"
+                      className="group flex w-full items-start justify-between rounded-lg px-3 py-2 text-left text-sm text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-zinc-950 dark:hover:text-zinc-50 transition-colors"
                     >
                       <div className="flex flex-col gap-0.5">
-                        <span className="font-medium text-zinc-200 group-hover:text-zinc-50">
+                        <span className="font-medium text-zinc-800 dark:text-zinc-200 group-hover:text-zinc-950 dark:group-hover:text-zinc-50">
                           {project.title}
                         </span>
-                        <span className="text-xs text-zinc-400 line-clamp-1">
+                        <span className="text-xs text-zinc-600 dark:text-zinc-400 line-clamp-1">
                           {project.shortDescription}
                         </span>
                       </div>
-                      <ArrowRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 text-zinc-400 self-center transition-opacity" />
+                      <ArrowRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 text-zinc-600 dark:text-zinc-400 self-center transition-opacity" />
                     </button>
                   ))}
                 </div>

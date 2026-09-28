@@ -19,9 +19,9 @@ export default async function BlogPage({ searchParams }: { searchParams: Promise
 
   return (
     <div className="mx-auto flex w-full max-w-[1024px] flex-col gap-10 px-4 py-12 md:px-8 lg:py-24">
-      <div id="blog-header" className="flex max-w-2xl flex-col gap-3 border-b border-zinc-900 pb-8">
-        <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-zinc-50">Writing</h1>
-        <p className="text-base md:text-lg leading-relaxed text-zinc-400">
+      <div id="blog-header" className="flex max-w-2xl flex-col gap-3 border-b border-zinc-100 dark:border-zinc-900 pb-8">
+        <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-zinc-950 dark:text-zinc-50">Writing</h1>
+        <p className="text-base md:text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
           Notes on building scalable systems, full-stack engineering and generative AI &mdash; what
           worked, what broke, and what I learned.
         </p>
@@ -39,8 +39,8 @@ export default async function BlogPage({ searchParams }: { searchParams: Promise
                 className={cn(
                   "rounded-full border px-3 py-1 text-xs font-medium transition-colors",
                   active
-                    ? "border-zinc-600 bg-zinc-800 text-zinc-50"
-                    : "border-zinc-800 text-zinc-400 hover:border-zinc-700 hover:text-zinc-200"
+                    ? "border-zinc-400 dark:border-zinc-600 bg-zinc-200 dark:bg-zinc-800 text-zinc-950 dark:text-zinc-50"
+                    : "border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:border-zinc-300 dark:hover:border-zinc-700 hover:text-zinc-800 dark:hover:text-zinc-200"
                 )}
               >
                 {t ?? "All"}
@@ -51,9 +51,9 @@ export default async function BlogPage({ searchParams }: { searchParams: Promise
       )}
 
       {visible.length === 0 ? (
-        <div className="flex flex-col items-center gap-3 rounded-xl border border-dashed border-zinc-800 py-20 text-center">
-          <PenLine className="h-6 w-6 text-zinc-600" />
-          <p className="text-sm text-zinc-400">
+        <div className="flex flex-col items-center gap-3 rounded-xl border border-dashed border-zinc-200 dark:border-zinc-800 py-20 text-center">
+          <PenLine className="h-6 w-6 text-zinc-400 dark:text-zinc-600" />
+          <p className="text-sm text-zinc-600 dark:text-zinc-400">
             {tag ? `No posts tagged “${tag}” yet.` : "Posts are on the way. Check back soon."}
           </p>
         </div>
